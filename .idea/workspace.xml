@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/controllers/api/invites_controller.rb" line="54" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="" />
+    <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="challyme_api.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -836,7 +838,7 @@
       <workItem from="1471856538687" duration="42853000" />
       <workItem from="1472447914281" duration="693000" />
       <workItem from="1472448956080" duration="160000" />
-      <workItem from="1472449318075" duration="21131000" />
+      <workItem from="1472449318075" duration="21321000" />
     </task>
     <servers />
   </component>
@@ -873,7 +875,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64837000" />
+    <option name="totallyTimeSpent" value="65027000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
