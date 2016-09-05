@@ -82,7 +82,11 @@ class Api::ChallengesController < ApplicationController
 		end
 
 		receiver_ids.each do |user_id|
-			Invite.create(challenge_id: challenge.id, user_id: user_id)
+			if challenge.user_id == user_id
+        Invite.create(challenge_id: challenge.id, user_id: user_id, accepted: true)
+      else
+        Invite.create(challenge_id: challenge.id, user_id: user_id)
+      end
 		end
 
 
