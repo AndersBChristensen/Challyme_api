@@ -25,8 +25,8 @@ role :app, %w{deploy@138.68.68.133}
 role :web, %w{deploy@138.68.68.133}
 role :db, %w{deploy@138.68.68.133}, :primary => true
 set :branch, "master"
-set :rails_env, "staging"
-set :deploy_to, "/var/www/challyme_api_staging"
+set :rails_env, "production"
+set :deploy_to, "/var/www/challyme_api_production"
 
 # Configuration
 # =============
