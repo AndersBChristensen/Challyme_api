@@ -1,0 +1,2 @@
+class ActionDatesController < ApplicationController
+end

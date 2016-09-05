@@ -45,3 +45,20 @@ group :development do
   gem 'spring'
 end
 
+#AuthLogic
+gem 'authlogic'
+
+#The final authentication
+gem 'doorkeeper'
+
+gem 'oauth2'
+
+gem 'bcrypt'
+
+gem 'bcrypt-ruby'
+
+gem 'devise'
+
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-passenger'

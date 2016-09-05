@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  use_doorkeeper
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +55,33 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root "home#index"
+
+  namespace :api do
+
+    get 'userchallenges/:id' => 'users#user_challenges', as: :users
+
+    get 'showInviteWithChallengeName/:id' => 'invites#showInviteWithChallengeName', as: :invites
+    get 'showAcceptedChallenges/:id' => 'invites#showAcceptedChallenges'
+    get 'friendRequests/:id' => 'friends#friendRequests'
+    get 'friends/:id' => 'friends#friends'
+    post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
+    get 'showAllActionForUser/:id' => 'completes#showAllActionForUser'
+    resources :invites
+    resources :completes
+    resources :friends
+
+    resources :users do
+      resources :challenges do
+        resources :tasks do
+         resources :actions do
+          resources :action_dates
+         end
+        end
+      end
+    end
+    resources :invites
+  end
+
 end

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails challyme_api: development" uuid="d36250d5-b15a-4dc9-8e23-8deb7f252c6e">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails challyme_api: test" uuid="fc48db62-7b0c-4427-b046-3216b8759e4a">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
