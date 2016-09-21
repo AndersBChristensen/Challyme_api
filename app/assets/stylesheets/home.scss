@@ -8,8 +8,19 @@ body{
 
 h1{
   color: #ffffff;
+  text-align: center;
 }
 
 h3{
   color: #ffffff;
+  text-align: center;
+}
+
+#imagewrapper {
+  text-align:center
+}
+
+#imagewrapper img {
+  display:inline-block;
+  margin:0 5px
 }
