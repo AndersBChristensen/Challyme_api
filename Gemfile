@@ -62,3 +62,19 @@ gem 'devise'
 gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-rails', '~> 1.1'
 gem 'capistrano-passenger'
+
+gem "slim-rails"
+gem 'bh', '~> 1.3'
+
+gem 'simple_form'
+
+gem 'lazy_high_charts'
+gem "cocoon"
+
+gem 'mandrill_mailer'
+
+gem "rest-client"
+gem 'vpim', '~> 13.11.11'
+gem 'rails4-autocomplete'
+
+gem 'jquery-ui-rails'
