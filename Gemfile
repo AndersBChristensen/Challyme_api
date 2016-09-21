@@ -66,6 +66,9 @@ gem 'capistrano-passenger'
 gem "slim-rails"
 gem 'bh', '~> 1.3'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+gem "twitter-bootstrap-rails"
+
 gem 'simple_form'
 
 gem 'lazy_high_charts'
