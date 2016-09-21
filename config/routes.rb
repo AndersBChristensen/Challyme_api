@@ -71,6 +71,7 @@ Rails.application.routes.draw do
     resources :invites
     resources :completes
     resources :friends
+    resources :home
 
     resources :users do
       resources :challenges do
