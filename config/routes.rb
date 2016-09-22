@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root "home#index"
+  root "home#new"
 
   resources :home do
     post "add_signup" => "home#add_signup"

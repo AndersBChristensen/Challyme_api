@@ -1,10 +1,10 @@
 
-= simple_form_for([@pre]) do |f|
+= simple_form_for [@pre], url: url_for('home') do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :email, label: "E-mail"
+    = f.input :email, label: false
 
   .form-actions
-    = f.button :submit, class: "btn btn-primary"
+    = f.button :submit, class: "btn btn-primary", value: "Signup"
 

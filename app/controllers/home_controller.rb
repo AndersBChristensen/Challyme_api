@@ -3,10 +3,6 @@ class HomeController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_signup, only: [:edit, :update, :destroy]
 
-  def index
-    @pres = Presignup.all
-  end
-
   def show
     @pre = Presignup.find(params[:id])
   end
