@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829074054) do
+ActiveRecord::Schema.define(version: 20160922064845) do
 
   create_table "action_dates", force: :cascade do |t|
     t.date     "date"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 20160829074054) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
+
+  create_table "presignups", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
