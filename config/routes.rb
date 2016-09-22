@@ -58,6 +58,10 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  resources :home do
+    post "add_signup" => "home#add_signup"
+  end
+
   namespace :api do
 
     get 'userchallenges/:id' => 'users#user_challenges', as: :users
@@ -71,8 +75,7 @@ Rails.application.routes.draw do
     resources :invites
     resources :completes
     resources :friends
-    resources :home
-
+    #resources :home
     resources :users do
       resources :challenges do
         resources :tasks do

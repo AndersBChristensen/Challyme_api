@@ -1,0 +1,10 @@
+
+= simple_form_for([@pre]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, label: "E-mail"
+
+  .form-actions
+    = f.button :submit, class: "btn btn-primary"
+

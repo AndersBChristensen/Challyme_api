@@ -10,11 +10,5 @@
     h1 Velkommen til Challyme
     h3 Noget fedt kommer til at ske her
 
-    = simple_form_for([@presignup]) do |f|
-      = f.error_notification
-
-      .form-inputs
-        = f.input :email
-
-      .form-actions
-        = f.button :submit, class: "btn btn-primary"
+    div#imagewrapper
+      //== render 'form'
