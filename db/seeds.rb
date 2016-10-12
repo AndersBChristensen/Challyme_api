@@ -17,5 +17,8 @@ challenge = Challenge.create!(title: "Månedens program", prize: "En tur i biogr
 
 task2 = Task.create!(title: "Tirsdag", challenge: challenge)
 
-Action.create!(name: "Aften", task: task2)
-#ActionDate.create!(date: "2016-01-01", action: action)
+action2 = Action.create!(name: "Aften", task: task2)
+
+ActionDate.create!(date: "2016-01-01", task: task2)
+
+Actionmodule.create!(text: "Løb 5 km", action:action2)

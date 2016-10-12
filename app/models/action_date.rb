@@ -1,5 +1,5 @@
 class ActionDate < ActiveRecord::Base
-  belongs_to :action
+  belongs_to :task
   has_many :completes
 
   def as_json(options = {})

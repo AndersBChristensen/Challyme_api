@@ -1,0 +1,2 @@
+class ActionmodulesController < ApplicationController
+end

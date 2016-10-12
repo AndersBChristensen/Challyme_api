@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922064845) do
+ActiveRecord::Schema.define(version: 20161012115816) do
 
   create_table "action_dates", force: :cascade do |t|
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "task_id"
+  end
+
+  add_index "action_dates", ["task_id"], name: "index_action_dates_on_task_id"
+
+  create_table "actionmodules", force: :cascade do |t|
+    t.integer  "countertype"
+    t.integer  "countertime"
+    t.string   "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "action_id"
   end
 
-  add_index "action_dates", ["action_id"], name: "index_action_dates_on_action_id"
+  add_index "actionmodules", ["action_id"], name: "index_actionmodules_on_action_id"
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -118,6 +129,15 @@ ActiveRecord::Schema.define(version: 20160922064845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "task_dates", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "task_id"
+  end
+
+  add_index "task_dates", ["task_id"], name: "index_task_dates_on_task_id"
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
