@@ -1,0 +1,2 @@
+class TaskDatesController < ApplicationController
+end

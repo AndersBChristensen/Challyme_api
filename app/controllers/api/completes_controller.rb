@@ -25,14 +25,14 @@ class Api::CompletesController < ApplicationController
 
     #completed = Complete.select('completes.action_dates_id')
 
-    actions = Invite.select('actions.id as ActionId', 'actions.name as ActionName', 'action_dates.date as ActionDate', 'action_dates.id as ActionDate_id', 'invites.user_id as User', 'completed.action_dates_id as completed', 'invites.id')
+    actions = Invite.select('actions.id as ActionId', 'actions.name as ActionName', 'task_dates.date as TaskDate', 'task_dates.id as ActionDate_id', 'invites.user_id as User', 'completed.task_dates_id as completed', 'invites.id')
                   .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
 inner join actions on tasks.id = actions.task_id
-inner join action_dates on actions.id = action_dates.action_id
-left join completes as completed on action_dates.id = completed.action_dates_id
-').where(user_id: params[:id]).where(:accepted =>  true).order('action_dates.date ASC')
+inner join task_dates on actions.id = task_dates.action_id
+left join completes as completed on task_dates.id = completed.task_dates_id
+').where(user_id: params[:id]).where(:accepted =>  true).order('task.date ASC')
 
     #Show completed actions
     #.where('action_dates.id as complete' => Complete.select(:action_dates_id).map(&:action_dates_id))
@@ -46,16 +46,16 @@ left join completes as completed on action_dates.id = completed.action_dates_id
   #
   def create
 
-    if Complete.where(invite_id: params[:complete][:invite_id]).count > 0 && Complete.where(action_dates_id: params[:complete][:action_dates_id]).count > 0
+    if Complete.where(invite_id: params[:complete][:invite_id]).count > 0 && Complete.where(task_dates_id: params[:complete][:task_dates_id]).count > 0
       render json: {
           status: 400,
           message: "error"
       }.to_json
     else
 
-      if  Invite.where(id: params[:complete][:invite_id]).count > 0 && ActionDate.where(id: params[:complete][:action_dates_id]).count > 0
+      if  Invite.where(id: params[:complete][:invite_id]).count > 0 && TaskDate.where(id: params[:complete][:task_dates_id]).count > 0
 
-        param = params.require(:complete).permit(:action_dates_id, :invite_id, :image, :video)
+        param = params.require(:complete).permit(:task_dates_id, :invite_id, :image, :video)
         complete = Complete.create(param)
 
         if complete

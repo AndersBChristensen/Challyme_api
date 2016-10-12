@@ -1,4 +1,4 @@
-class ActionDate < ActiveRecord::Base
+class TaskDate < ActiveRecord::Base
   belongs_to :task
   has_many :completes
 

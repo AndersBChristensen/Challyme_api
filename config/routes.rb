@@ -80,7 +80,7 @@ Rails.application.routes.draw do
       resources :challenges do
         resources :tasks do
          resources :actions do
-          resources :action_dates
+          resources :task_dates
          end
         end
       end

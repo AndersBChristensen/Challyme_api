@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012115816) do
-
-  create_table "action_dates", force: :cascade do |t|
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "task_id"
-  end
-
-  add_index "action_dates", ["task_id"], name: "index_action_dates_on_task_id"
+ActiveRecord::Schema.define(version: 20161012130021) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -57,12 +48,12 @@ ActiveRecord::Schema.define(version: 20161012115816) do
     t.string   "video"
     t.string   "image"
     t.integer  "invite_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "action_dates_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "task_date_id"
   end
 
-  add_index "completes", ["action_dates_id"], name: "index_completes_on_action_dates_id"
+  add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
 
   create_table "friends", force: :cascade do |t|
     t.integer  "friend_one_id"

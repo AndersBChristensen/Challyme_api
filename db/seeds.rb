@@ -8,7 +8,7 @@
 User.destroy_all
 Challenge.destroy_all
 Task.destroy_all
-ActionDate.destroy_all
+TaskDate.destroy_all
 
 
 user = User.create!(first_name: "Anders Butzbach", last_name: "Christensen", birthday: "29/01/1993", username: "fyren", phone: "22770695", email: "ak@kviksoft.com", password: "test1234", gender: "male", active: true)
@@ -19,6 +19,6 @@ task2 = Task.create!(title: "Tirsdag", challenge: challenge)
 
 action2 = Action.create!(name: "Aften", task: task2)
 
-ActionDate.create!(date: "2016-01-01", task: task2)
+TaskDate.create!(date: "2016-01-01", task: task2)
 
 Actionmodule.create!(text: "Løb 5 km", action:action2)

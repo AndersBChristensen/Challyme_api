@@ -70,7 +70,7 @@ class Api::ChallengesController < ApplicationController
 
 		challenge_params = params.require(:challenge).permit(:title, :prize, :status, :user_id, tasks_attributes: [:id, :title,
 																																														actions_attributes: [:id, :name, actionmodules_attributes:[:id, :text, :countertype, :countertime]],
-																																																							 action_dates_attributes: [:id, :date]])
+																																																							 task_dates_attributes: [:id, :date]])
 
 		receiver_ids = params.require(:receiver_ids)
 
