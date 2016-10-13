@@ -72,7 +72,7 @@ Rails.application.routes.draw do
     get 'friends/:id' => 'friends#friends'
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
     get 'showAllActionForUser' => 'completes#showAllActionForUser'
-    get 'challengeprocess/:id' => 'completes#challengeprocess'
+    get 'challengeprocess' => 'completes#challengeprocess'
 
     resources :invites
     resources :completes
