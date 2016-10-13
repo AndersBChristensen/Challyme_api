@@ -23,8 +23,6 @@ class Api::CompletesController < ApplicationController
     # Show all actions sorted by date, and if they are completed or not.
     #
 
-    #completed = Complete.select('completes.action_dates_id')
-
     actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.task_date_id as completed', 'invites.id')
                   .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
@@ -34,17 +32,14 @@ inner join task_dates on tasks.id = task_dates.task_id
 left join completes as completed on task_dates.id = completed.task_date_id
 ').where(user_id: doorkeeper_token.resource_owner_id).where(:accepted =>  true).order('task_dates.date ASC')
 
-    #Show completed actions
-    #.where('action_dates.id as complete' => Complete.select(:action_dates_id).map(&:action_dates_id))
-
     render json: actions
 
   end
 
-  #
-  # Complete a challenge. Checks if the id's exist in the tables.
-  #
   def create
+    #
+    # Complete a challenge. Checks if the id's exist in the tables.
+    #
 
     if Complete.where(invite_id: params[:complete][:invite_id]).count > 0 && Complete.where(task_dates_id: params[:complete][:task_dates_id]).count > 0
       render json: {
@@ -73,12 +68,25 @@ left join completes as completed on task_dates.id = completed.task_date_id
     end
   end
 
-  def challengeProcess
+  def challengeprocess
     #
     # Show process over how many actions there have been completed.
     #
 
+    @user = User.find(id: doorkeeper_token.resource_owner_id)
 
+    @invites = Invite.where(user_id: doorkeeper_token.resource_owner_id)
+    p @invites
+
+    render json: @invites.map {|invite|
+      {
+          actions_completed: invite.completes.count,
+          total_actions: invite.challenge.totals,
+          challenge_title: invite.challenge.title,
+          creator: @user.username,
+          creator_id: invite.user_id
+      }
+    }
 
   end
 

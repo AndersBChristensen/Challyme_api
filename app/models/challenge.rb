@@ -5,6 +5,12 @@ class Challenge < ActiveRecord::Base
   has_many :tasks
   accepts_nested_attributes_for :tasks
 
+  def totals
+    total_dates = TaskDate.includes(:task).where(tasks: {challenge_id: self.id}).count
+    total_actions = Action.includes(:task).where(tasks: {challenge_id: self.id}).count
+    total_dates * total_actions
+  end
+
   def as_json(options = {})
   	{
   		id: self.id,
