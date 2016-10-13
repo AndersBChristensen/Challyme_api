@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :destroy] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [:create, :destroy, :challengeprocess] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -73,9 +73,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
     # Show process over how many actions there have been completed.
     #
 
-    @user = User.find(doorkeeper_token.resource_owner_id)
-
-    @invites = Invite.where(user_id: doorkeeper_token.resource_owner_id, accepted: true)
+    @invites = Invite.where(user_id: 2)
     p @invites
 
     render json: @invites.map {|invite|
@@ -84,8 +82,8 @@ left join completes as completed on task_dates.id = completed.task_date_id
           total_actions: invite.challenge.totals,
           challenge_id: invite.challenge.id,
           challenge_title: invite.challenge.title,
-          creator: @user.username,
-          creator_id: invite.user_id
+          creator: User.find(invite.challenge.user_id).username,
+          creator_id: invite.challenge.user_id
       }
     }
 
