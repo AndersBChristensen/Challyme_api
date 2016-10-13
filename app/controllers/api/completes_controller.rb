@@ -82,6 +82,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
       {
           actions_completed: invite.completes.count,
           total_actions: invite.challenge.totals,
+          challenge_id: invite.challenge.id,
           challenge_title: invite.challenge.title,
           creator: @user.username,
           creator_id: invite.user_id

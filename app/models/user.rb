@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 	has_many :invites
 	has_many :challenges
 	accepts_nested_attributes_for :challenges
+
+
 end
