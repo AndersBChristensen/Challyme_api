@@ -71,7 +71,7 @@ Rails.application.routes.draw do
     get 'friendRequests/:id' => 'friends#friendRequests'
     get 'friends/:id' => 'friends#friends'
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
-    get 'showAllActionForUser/:id' => 'completes#showAllActionForUser'
+    get 'showAllActionForUser' => 'completes#showAllActionForUser'
     resources :invites
     resources :completes
     resources :friends

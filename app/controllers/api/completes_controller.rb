@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :showAllActionForUser, :destroy] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [:create, :destroy] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -25,14 +25,14 @@ class Api::CompletesController < ApplicationController
 
     #completed = Complete.select('completes.action_dates_id')
 
-    actions = Invite.select('actions.id as ActionId', 'actions.name as ActionName', 'task_dates.date as TaskDate', 'task_dates.id as ActionDate_id', 'invites.user_id as User', 'completed.task_date_id as completed', 'invites.id')
+    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.task_date_id as completed', 'invites.id')
                   .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
 inner join actions on tasks.id = actions.task_id
 inner join task_dates on tasks.id = task_dates.task_id
 left join completes as completed on task_dates.id = completed.task_date_id
-').where(user_id: params[:id]).where(:accepted =>  true).order('task_dates.date ASC')
+').where(user_id: doorkeeper_token.resource_owner_id).where(:accepted =>  true).order('task_dates.date ASC')
 
     #Show completed actions
     #.where('action_dates.id as complete' => Complete.select(:action_dates_id).map(&:action_dates_id))
