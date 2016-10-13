@@ -47,7 +47,7 @@ class Api::InvitesController < ApplicationController
 		# Getting all the invites the user haven't answered.
 		#
 		invites = Invite
-									.select('invites.id', 'challenges.title', 'users.username as invited', 'invited_by.username as invited_by', 'invites.accepted')
+									.select('invites.id', 'challenges.title', 'users.username as invited', 'users.id as invited_id', 'invited_by.username as invited_by', 'invited_by.id as invited_by_id', 'invites.accepted')
 									.joins("inner join challenges on challenges.id = invites.challenge_id
 													inner join users on invites.user_id = users.id
 													left join users as invited_by on challenges.user_id = invited_by.id")
@@ -60,7 +60,7 @@ class Api::InvitesController < ApplicationController
 		# Show all the accepted challenges for a user.
 		#
 		invites = Invite
-									.select('invites.id', 'challenges.title', 'users.username as invited', 'invited_by.username as invited_by', 'invites.accepted')
+									.select('invites.id', 'challenges.title', 'users.username as invited', 'users.id as invited_id', 'invited_by.username as invited_by', 'invited_by.id as invited_by_id', 'invites.accepted')
 									.joins("inner join challenges on challenges.id = invites.challenge_id
 		                     	inner join users on invites.user_id = users.id
 		                     	left join users as invited_by on challenges.user_id = invited_by.id")

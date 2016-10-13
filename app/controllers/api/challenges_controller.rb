@@ -53,11 +53,11 @@ class Api::ChallengesController < ApplicationController
 	#     tasks: [
 	#       {
 	#         title: "sdflkjelr"
+	#					dates: [ "2016-01-01", "2016-02-01" ]
 	#         actions: [
 	#           {
 	#             title: "sdiljfoier"
 	#             type: "sldkfjlier"
-	#             dates: [ "2016-01-01", "2016-02-01" ]
     #           }
     #         ]
     #       }

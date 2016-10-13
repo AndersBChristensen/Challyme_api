@@ -25,14 +25,14 @@ class Api::CompletesController < ApplicationController
 
     #completed = Complete.select('completes.action_dates_id')
 
-    actions = Invite.select('actions.id as ActionId', 'actions.name as ActionName', 'task_dates.date as TaskDate', 'task_dates.id as ActionDate_id', 'invites.user_id as User', 'completed.task_dates_id as completed', 'invites.id')
+    actions = Invite.select('actions.id as ActionId', 'actions.name as ActionName', 'task_dates.date as TaskDate', 'task_dates.id as ActionDate_id', 'invites.user_id as User', 'completed.task_date_id as completed', 'invites.id')
                   .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
 inner join actions on tasks.id = actions.task_id
-inner join task_dates on actions.id = task_dates.action_id
-left join completes as completed on task_dates.id = completed.task_dates_id
-').where(user_id: params[:id]).where(:accepted =>  true).order('task.date ASC')
+inner join task_dates on tasks.id = task_dates.task_id
+left join completes as completed on task_dates.id = completed.task_date_id
+').where(user_id: params[:id]).where(:accepted =>  true).order('task_dates.date ASC')
 
     #Show completed actions
     #.where('action_dates.id as complete' => Complete.select(:action_dates_id).map(&:action_dates_id))
