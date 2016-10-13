@@ -75,7 +75,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
 
     @user = User.find(doorkeeper_token.resource_owner_id)
 
-    @invites = Invite.where(user_id: doorkeeper_token.resource_owner_id)
+    @invites = Invite.where(user_id: doorkeeper_token.resource_owner_id, accepted: true)
     p @invites
 
     render json: @invites.map {|invite|
