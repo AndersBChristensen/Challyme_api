@@ -73,7 +73,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
     # Show process over how many actions there have been completed.
     #
 
-    @invites = Invite.where(user_id: 2)
+    @invites = Invite.where(user_id: 2, accepted: true)
     p @invites
 
     render json: @invites.map {|invite|
