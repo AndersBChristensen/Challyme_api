@@ -377,8 +377,8 @@
       <file leaf-file-name="completes_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1321,7 +1321,7 @@
       <workItem from="1475743717741" duration="591000" />
       <workItem from="1475744621203" duration="1911000" />
       <workItem from="1476269205605" duration="5520000" />
-      <workItem from="1476340539458" duration="9905000" />
+      <workItem from="1476340539458" duration="10163000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1366,7 +1366,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121607000" />
+    <option name="totallyTimeSpent" value="121865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1825,8 +1825,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
