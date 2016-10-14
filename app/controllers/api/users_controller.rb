@@ -51,6 +51,14 @@ class Api::UsersController < ApplicationController
 		}
 	end
 
+	def user_score
+
+		#TODO count all
+
+		@actions = Action.includes(:task).where(tasks: {challenge_id: self.id}).count
+
+	end
+
 	private
 		def set_user
 			user = User.find(params[:id])

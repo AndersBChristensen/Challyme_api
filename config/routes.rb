@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
     get 'userchallenges/:id' => 'users#user_challenges', as: :users
 
-    get 'showInviteWithChallengeName/:id' => 'invites#showInviteWithChallengeName', as: :invites
+    get 'showInviteWithChallengeName' => 'invites#showInviteWithChallengeName', as: :invites
     get 'showAcceptedChallenges/:id' => 'invites#showAcceptedChallenges'
     get 'friendRequests/:id' => 'friends#friendRequests'
     get 'friends/:id' => 'friends#friends'

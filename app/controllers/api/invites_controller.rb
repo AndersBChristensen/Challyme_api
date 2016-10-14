@@ -1,5 +1,6 @@
 class Api::InvitesController < ApplicationController
-	
+
+	before_action :doorkeeper_authorize!, except: [:create]
 	skip_before_action :verify_authenticity_token
 	before_action :set_invite, only: [:show, :edit, :destroy]
 
@@ -51,7 +52,7 @@ class Api::InvitesController < ApplicationController
 									.joins("inner join challenges on challenges.id = invites.challenge_id
 													inner join users on invites.user_id = users.id
 													left join users as invited_by on challenges.user_id = invited_by.id")
-									.where(user_id: params[:id]).where("accepted IS ?", nil).order('invites.created_at DESC')
+									.where(user_id: doorkeeper_token.resource_owner_id).where("accepted IS ?", nil).order('invites.created_at DESC')
 		render json: invites
 	end
 
@@ -64,7 +65,7 @@ class Api::InvitesController < ApplicationController
 									.joins("inner join challenges on challenges.id = invites.challenge_id
 		                     	inner join users on invites.user_id = users.id
 		                     	left join users as invited_by on challenges.user_id = invited_by.id")
-									.where(user_id: params[:id]).where("accepted IS ?", true).order('invites.created_at DESC')
+									.where(user_id: doorkeeper_token.resource_owner_id).where("accepted IS ?", true).order('invites.created_at DESC')
 		render json:  invites
 	end
 
