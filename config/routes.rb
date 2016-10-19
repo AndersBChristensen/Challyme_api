@@ -73,6 +73,7 @@ Rails.application.routes.draw do
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
     get 'showAllActionForUser' => 'completes#showAllActionForUser'
     get 'challengeprocess' => 'completes#challengeprocess'
+    get 'search_users/:key' => 'users#search_users'
 
     resources :invites
     resources :completes

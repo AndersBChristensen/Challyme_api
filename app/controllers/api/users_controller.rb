@@ -59,6 +59,28 @@ class Api::UsersController < ApplicationController
 
 	end
 
+	def search_users
+
+		@key = "%#{params[:key]}%"
+		@columns = %w{first_name last_name username}
+		@users = User.where(
+				@columns
+						.map {|c| "#{c} like :search" }
+						.join(' OR '),
+				search: @key
+		).limit(50)
+
+		render json: @users.map {|user|
+			{
+					id: user.id,
+					username: user.username,
+					firstname: user.first_name,
+					lastname: user.last_name
+			}
+		}
+
+	end
+
 	private
 		def set_user
 			user = User.find(params[:id])
