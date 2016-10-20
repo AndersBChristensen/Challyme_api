@@ -36,7 +36,7 @@ class Api::FriendsController < ApplicationController
 
   def friendRequests
     friendRequest = Friend
-                        .select('friendOne.username as friend_1', 'friendTwo.username as friend_2', 'friends.status')
+                        .select('friends.id','friendOne.username as friend_1', 'friendTwo.username as friend_2', 'friends.status')
                         .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")
                         .joins("left join users as friendTwo on friends.friend_two_id = friendTwo.id")
                         .where(status: 0)
@@ -47,7 +47,7 @@ class Api::FriendsController < ApplicationController
 
   def friends
     friends = Friend
-                        .select('friendOne.username as friend_1', 'friendTwo.username as friend_2', 'friends.status')
+                        .select('friends.id','friendOne.username as friend_1', 'friendTwo.username as friend_2', 'friends.status')
                         .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")
                         .joins("left join users as friendTwo on friends.friend_two_id = friendTwo.id")
                         .where(status: 1)
