@@ -1,6 +1,6 @@
 class Api::FriendsController < ApplicationController
 
-  before_action :doorkeeper_authorize!, except: [:create, :friendRequests, :friends, :update] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [] #Todo sæt tilbage til at have oauth
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -40,7 +40,7 @@ class Api::FriendsController < ApplicationController
                         .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")
                         .joins("left join users as friendTwo on friends.friend_two_id = friendTwo.id")
                         .where(status: 0)
-                        .where(friend_two_id: params[:id])
+                        .where(friend_two_id: doorkeeper_token.resource_owner_id)
 
     render json:  friendRequest
   end
@@ -51,7 +51,7 @@ class Api::FriendsController < ApplicationController
                         .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")
                         .joins("left join users as friendTwo on friends.friend_two_id = friendTwo.id")
                         .where(status: 1)
-                        .where("friend_one_id =" +  params[:id] + " OR friend_two_id = " + params[:id])
+                        .where("friend_one_id =" +  doorkeeper_token.resource_owner_id + " OR friend_two_id = " + doorkeeper_token.resource_owner_id)
 
     render json:  friends
   end
