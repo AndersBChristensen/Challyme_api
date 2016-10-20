@@ -11,7 +11,7 @@ class Api::FriendsController < ApplicationController
   end
 
   def create
-    param = params.require(:friend).permit(:friend_one_id, :friend_two_id, :status)
+    param = params.permit(:friend_one_id, :friend_two_id, :status)
     friend = Friend.create(param)
     if friend
       render status: :created, json: friend
@@ -22,7 +22,7 @@ class Api::FriendsController < ApplicationController
 
   def update
     friend = Friend.find(params[:id])
-    p = params.require(:friend).permit(:status)
+    p = params.permit(:status)
 
     respond_to do |format|
       if friend.update(p)
