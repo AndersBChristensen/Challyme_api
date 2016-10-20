@@ -77,7 +77,8 @@ class Api::UsersController < ApplicationController
 					id: user.id,
 					username: user.username,
 					firstname: user.first_name,
-					lastname: user.last_name
+					lastname: user.last_name,
+					friend_status: user.friend_status
 			}
 		}
 
