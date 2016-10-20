@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :friends
 
 
-	def friend_status
-			if Friend.where(friend_one_id: self.id, friend_two_id: doorkeeper_token.resource_owner_id).count > 0
+	def friend_status?(myId, userId)
+			if Friend.where(friend_one_id: myId, friend_two_id: userId).count > 0
 				status = true
-			elsif Friend.where(friend_two_id: self.id, friend_one_id: doorkeeper_token.resource_owner_id).count > 0
+			elsif Friend.where(friend_two_id: myId, friend_one_id: userId).count > 0
 				status = true
     	else
 				status = false

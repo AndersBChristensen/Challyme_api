@@ -78,7 +78,7 @@ class Api::UsersController < ApplicationController
 					username: user.username,
 					firstname: user.first_name,
 					lastname: user.last_name,
-					friend_status: user.friend_status
+					friend_status: user.friend_status?(doorkeeper_token.resource_owner_id, user.id)
 			}
 		}
 
