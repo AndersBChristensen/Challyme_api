@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012130021) do
+ActiveRecord::Schema.define(version: 20161020120914) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 20161012130021) do
   end
 
   add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
+
+  create_table "followers", force: :cascade do |t|
+    t.integer  "follower_one_id"
+    t.integer  "follower_two_id"
+    t.integer  "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "followers", ["follower_one_id"], name: "index_followers_on_follower_one_id"
+  add_index "followers", ["follower_two_id"], name: "index_followers_on_follower_two_id"
 
   create_table "friends", force: :cascade do |t|
     t.integer  "friend_one_id"

@@ -70,6 +70,8 @@ Rails.application.routes.draw do
     get 'showAcceptedChallenges/:id' => 'invites#showAcceptedChallenges'
     get 'friendRequests' => 'friends#friendRequests'
     get 'friends' => 'friends#friends'
+    get 'followRequest' => 'followers#followRequest'
+    get 'followers' => 'followers#followers'
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
     get 'showAllActionForUser' => 'completes#showAllActionForUser'
     get 'challengeprocess' => 'completes#challengeprocess'
@@ -78,6 +80,7 @@ Rails.application.routes.draw do
     resources :invites
     resources :completes
     resources :friends
+    resources :followers
     #resources :home
     resources :users do
       resources :challenges do
