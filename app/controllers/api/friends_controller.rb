@@ -27,7 +27,7 @@ class Api::FriendsController < ApplicationController
   end
 
   def update
-    friend = Friend.find(params[:id])
+    friend = Friend.find_by(friend_one_id: params[:id], friend_two_id: doorkeeper_token.resource_owner_id)
     p = params.permit(:status)
 
     respond_to do |format|
@@ -38,6 +38,20 @@ class Api::FriendsController < ApplicationController
         format.json { render :status => 400 }
       end
     end
+  end
+
+  def decline_friendship
+    @follower = Friend.find_by(friend_one_id: params[:id], friend_two_id: doorkeeper_token.resource_owner_id)
+    @follower.destroy
+    render json: :deleted
+  end
+
+  def friends
+    @friends_col1 = Friend.where(friend_one_id: params[:id],  status: 1)
+    @friends_col2 = Friend.where(friend_two_id: params[:id], status: 1)
+    @friends = @friends_col1 + @friends_col2
+
+    render json: @friends
   end
 
   def friendRequests
@@ -51,7 +65,7 @@ class Api::FriendsController < ApplicationController
     render json:  friendRequest
   end
 
-  def friends
+  def friends1
     friends = Friend
                         .select('friends.id','friendOne.username as friend_1', 'friendTwo.username as friend_2', 'friends.status')
                         .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")

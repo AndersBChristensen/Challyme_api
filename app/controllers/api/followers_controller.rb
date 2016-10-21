@@ -26,7 +26,7 @@ class Api::FollowersController < ApplicationController
   end
 
   def update
-    follower = Follower.find(params[:id])
+    follower = Follower.find_by(follower_one_id: params[:id], follower_two_id: doorkeeper_token.resource_owner_id)
     p = params.permit(:status)
 
     respond_to do |format|
@@ -37,6 +37,17 @@ class Api::FollowersController < ApplicationController
         format.json { render :status => 400 }
       end
     end
+  end
+
+  def followers
+    @followers = Follower.where(follower_two_id: params[:id])
+    render json: @followers
+  end
+
+  def follows
+    @follows = Follower.where(follower_one_id: params[:id])
+
+    render json: @follows
   end
 
   def followRequest
@@ -50,7 +61,7 @@ class Api::FollowersController < ApplicationController
     render json:  followRequest
   end
 
-  def followers
+  def followers_1
     followers = Follower
                   .select('followers.id','friendOne.username as follower_1', 'friendTwo.username as follower_2', 'followers.status')
                   .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")

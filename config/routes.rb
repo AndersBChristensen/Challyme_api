@@ -69,9 +69,11 @@ Rails.application.routes.draw do
     get 'showInviteWithChallengeName' => 'invites#showInviteWithChallengeName', as: :invites
     get 'showAcceptedChallenges/:id' => 'invites#showAcceptedChallenges'
     get 'friendRequests' => 'friends#friendRequests'
-    get 'friends' => 'friends#friends'
+    get 'friends/:id' => 'friends#friends'
+    delete 'enterpriceapp/getridofroomphoto/:id' => 'friends#getridofroomphoto'
     get 'followRequest' => 'followers#followRequest'
-    get 'followers' => 'followers#followers'
+    get 'followers/:id' => 'followers#followers'
+    get 'follows/:id' => 'followers#follows'
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
     get 'showAllActionForUser' => 'completes#showAllActionForUser'
     get 'challengeprocess' => 'completes#challengeprocess'
