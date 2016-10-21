@@ -19,6 +19,12 @@ class Api::FollowersController < ApplicationController
     end
   end
 
+  def destroy
+    @follower = Follower.find(params[:id])
+    @follower.destroy
+    render json: :deleted
+  end
+
   def update
     follower = Follower.find(params[:id])
     p = params.permit(:status)

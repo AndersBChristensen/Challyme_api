@@ -10,6 +10,12 @@ class Api::FriendsController < ApplicationController
     render json:friends
   end
 
+  def destroy
+    @friend = Friend.find(params[:id])
+    @friend.destroy
+    render json: :deleted
+  end
+
   def create
     param = params.permit(:friend_one_id, :friend_two_id, :status)
     friend = Friend.create(param)

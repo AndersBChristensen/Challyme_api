@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	end
 
   def follower_status?(myId, userId)
-    if Follower.where(follower_one_id: myId, follower_two_id: userId, status: 1).count > 0
+    if Follower.where(follower_one_id: myId, follower_two_id: userId).count > 0
       status = true
     else
       status = false
