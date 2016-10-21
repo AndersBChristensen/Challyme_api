@@ -1,5 +1,5 @@
 class Api::FollowersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [:followers, :follows] #Todo sæt tilbage til at have oauth
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -40,15 +40,13 @@ class Api::FollowersController < ApplicationController
   end
 
   def followers
-    @followers = Follower.where(follower_two_id: params[:id])
-    render json: @followers.map {|followers|
-      {
-          id: User.user_id?(followers.follower_two_id),
-          username: User.username?(followers.follower_two_id),
-          firstname: User.firstname?(followers.follower_two_id),
-          lastname: User.lastname?(followers.follower_two_id)
-      }
-    }
+    @followers = Follower
+                     .select('followers.id as followers_id','friendTwo.username as username', 'friendTwo.first_name as firstname', 'friendTwo.last_name as lastname', 'friendTwo.id as id' )
+                     .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")
+                     .joins("left join users as friendTwo on followers.follower_two_id = friendTwo.id")
+                     .where(follower_two_id: params[:id])
+
+    render json: @followers
   end
 
   def follows
