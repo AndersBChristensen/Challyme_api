@@ -11,7 +11,7 @@ class Api::FriendsController < ApplicationController
   end
 
   def destroy
-    @friend = Friend.find_by(friend_one_id: params[:id], friend_two_id: doorkeeper_token.resource_owner_id)
+    @friend = Friend.find_by(friend_one_id: doorkeeper_token.resource_owner_id, friend_two_id: params[:id])
     @friend.destroy
     render json: :deleted
   end
