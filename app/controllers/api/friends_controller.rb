@@ -47,15 +47,12 @@ class Api::FriendsController < ApplicationController
   end
 
   def friends
-    @friends_col1 = Friend.where(friend_one_id: params[:id],  status: 1)
-    @friends_col2 = Friend.where(friend_two_id: params[:id], status: 1)
-    @friends = @friends_col1 + @friends_col2
+    @friends = Follower.select('friendTwo.username as username', 'friendTwo.first_name as firstname', 'friendTwo.last_name as lastname', 'friendTwo.id as user_id' )
+                   .joins("left join users as friendOne on friends.friend_one_id = friendOne.id")
+                   .joins("left join users as friendTwo on friends.friend_two_id = friendTwo.id")
+                   .where("friend_one_id =" +  params[:id] + " OR friend_two_id = " + params[:id])
 
-    render json: @friends.map {|friend|
-      {
-          username: User.username_for_friend?(friend.friend_one_id)
-      }
-    }
+    render json: @friends
 
   end
 

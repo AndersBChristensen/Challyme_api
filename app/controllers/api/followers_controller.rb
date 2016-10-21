@@ -41,7 +41,7 @@ class Api::FollowersController < ApplicationController
 
   def followers
     @followers = Follower
-                     .select('followers.id as followers_id','friendTwo.username as username', 'friendTwo.first_name as firstname', 'friendTwo.last_name as lastname', 'friendTwo.id as id' )
+                     .select('friendOne.username as username', 'friendOne.first_name as firstname', 'friendOne.last_name as lastname', 'friendOne.id as user_id' )
                      .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")
                      .joins("left join users as friendTwo on followers.follower_two_id = friendTwo.id")
                      .where(follower_two_id: params[:id])
@@ -51,7 +51,7 @@ class Api::FollowersController < ApplicationController
 
   def follows
     @follows = Follower
-                   .select('followers.id as followers_id','friendTwo.username as username', 'friendTwo.first_name as firstname', 'friendTwo.last_name as lastname', 'friendTwo.id as id' )
+                   .select('friendTwo.username as username', 'friendTwo.first_name as firstname', 'friendTwo.last_name as lastname', 'friendTwo.id as user_id' )
                    .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")
                    .joins("left join users as friendTwo on followers.follower_two_id = friendTwo.id")
                    .where(follower_one_id: params[:id])
