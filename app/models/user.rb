@@ -49,4 +49,15 @@ class User < ActiveRecord::Base
     total_followers
   end
 
+  def pending_friend_status?(myId, userId)
+    if Friend.where(friend_one_id: myId, friend_two_id: userId, status: 0).count > 0
+      status = true
+    elsif Friend.where(friend_two_id: myId, friend_one_id: userId, status: 0).count > 0
+      status = true
+    else
+      status = false
+    end
+    status
+  end
+
 end

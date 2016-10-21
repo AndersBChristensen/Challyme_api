@@ -82,8 +82,25 @@ class Api::UsersController < ApplicationController
 					follower_status: user.follower_status?(doorkeeper_token.resource_owner_id, user.id),
 					follows: user.who_i_follow(user.id),
 					follows_user: user.who_follow_me(user.id),
-					total_friends: user.total_friends(user.id)
+					total_friends: user.total_friends(user.id),
+					pending_friend_status: user.pending_friend_status?(doorkeeper_token.resource_owner_id, user.id)
 			}
+		}
+
+	end
+
+	def user_stats
+		@users = User.find(params[:id])
+
+		render json: @users.map {|user|
+				{
+						friend_status: user.friend_status?(doorkeeper_token.resource_owner_id, user.id),
+						follower_status: user.follower_status?(doorkeeper_token.resource_owner_id, user.id),
+						follows: user.who_i_follow(user.id),
+						follows_user: user.who_follow_me(user.id),
+						total_friends: user.total_friends(user.id),
+						pending_friend_status: user.pending_friend_status?(doorkeeper_token.resource_owner_id, user.id)
+				}
 		}
 
 	end
