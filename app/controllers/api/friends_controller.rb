@@ -51,7 +51,12 @@ class Api::FriendsController < ApplicationController
     @friends_col2 = Friend.where(friend_two_id: params[:id], status: 1)
     @friends = @friends_col1 + @friends_col2
 
-    render json: @friends
+    render json: @friends.map {|friend|
+      {
+          username: User.username_for_friend?(friend.friend_one_id)
+      }
+    }
+
   end
 
   def friendRequests

@@ -41,13 +41,27 @@ class Api::FollowersController < ApplicationController
 
   def followers
     @followers = Follower.where(follower_two_id: params[:id])
-    render json: @followers
+    render json: @followers.map {|followers|
+      {
+          id: User.user_id?(followers.follower_two_id),
+          username: User.username?(followers.follower_two_id),
+          firstname: User.firstname?(followers.follower_two_id),
+          lastname: User.lastname?(followers.follower_two_id)
+      }
+    }
   end
 
   def follows
     @follows = Follower.where(follower_one_id: params[:id])
 
-    render json: @follows
+    render json: @follows.map {|follow|
+      {
+          id: User.user_id?(follow.follower_one_id),
+          username: User.username?(follow.follower_one_id),
+          firstname: User.firstname?(follow.follower_one_id),
+          lastname: User.lastname?(follow.follower_one_id)
+      }
+    }
   end
 
   def followRequest

@@ -60,4 +60,24 @@ class User < ActiveRecord::Base
     status
   end
 
+  def username?(id)
+    user = User.find(id)
+    user.username
+  end
+
+  def firstname?(id)
+    user = User.find(id)
+    user.first_name
+  end
+
+  def lastname?(id)
+    user = User.find(id)
+    user.last_name
+  end
+
+  def user_id?(id)
+    user = User.find(id)
+    user.id
+  end
+
 end
