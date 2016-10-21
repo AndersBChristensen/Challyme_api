@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :user_stats]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -90,9 +90,10 @@ class Api::UsersController < ApplicationController
 	end
 
 	def user_stats
-		@users = User.find(params[:id])
 
-		render json: @users.map {|user|
+		@user = User.where(id: params[:id])
+
+		render json: @user.map {|user|
 				{
 						friend_status: user.friend_status?(doorkeeper_token.resource_owner_id, user.id),
 						follower_status: user.follower_status?(doorkeeper_token.resource_owner_id, user.id),
