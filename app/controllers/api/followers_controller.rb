@@ -1,5 +1,5 @@
 class Api::FollowersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [:create, :destroy] #Todo sæt tilbage til at have oauth
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -21,9 +21,9 @@ class Api::FollowersController < ApplicationController
   end
 
   def destroy
-    @follower = Follower.find_by(follower_one_id: doorkeeper_token.resource_owner_id, follower_two_id: params[:id])
+    @follower = Follower.find_by(follower_one_id: 2, follower_two_id: params[:id])
     @follower.destroy
-    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'stopped_following', null)
+    Activity.add_activity?(2, 'stopped_following', nil)
     render json: :deleted
   end
 

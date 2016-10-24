@@ -13,7 +13,7 @@ class Api::FriendsController < ApplicationController
   def destroy
     @friend = Friend.find_by(friend_one_id: doorkeeper_token.resource_owner_id, friend_two_id: params[:id])
     @friend.destroy
-    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'removed_friend_request', null)
+    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'removed_friend_request', nil)
     render json: :deleted
   end
 
@@ -46,7 +46,7 @@ class Api::FriendsController < ApplicationController
   def decline_friendship
     @friend = Friend.find_by(friend_one_id: params[:id], friend_two_id: doorkeeper_token.resource_owner_id)
     @friend.destroy
-    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'declined_friend', @friend.id)
+    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'declined_friend', nil)
     render json: :deleted
   end
 
