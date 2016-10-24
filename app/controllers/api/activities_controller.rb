@@ -5,7 +5,9 @@ class Api::ActivitiesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def get_activities
-    @activities = Activity.where(user_id: params[:id])
+    @activities = User.find(params[:id]).activities
+
+
     render json: @activities
   end
 

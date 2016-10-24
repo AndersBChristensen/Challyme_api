@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024082803) do
+ActiveRecord::Schema.define(version: 20161024105844) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20161024082803) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "activities_users", id: false, force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "activities_users", ["activity_id"], name: "index_activities_users_on_activity_id"
+  add_index "activities_users", ["user_id"], name: "index_activities_users_on_user_id"
 
   create_table "challenges", force: :cascade do |t|
     t.string   "title"
