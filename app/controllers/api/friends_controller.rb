@@ -13,14 +13,14 @@ class Api::FriendsController < ApplicationController
   def destroy
     @friend = Friend.find_by(friend_one_id: doorkeeper_token.resource_owner_id, friend_two_id: params[:id])
     @friend.destroy
-    Activity.create_activity?(doorkeeper_token.resource_owner_id, 'removed_friend_request', null)
+    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'removed_friend_request', null)
     render json: :deleted
   end
 
   def create
     param = params.permit(:friend_one_id, :friend_two_id, :status)
     friend = Friend.create(param)
-    Activity.create_activity?(doorkeeper_token.resource_owner_id, 'friend_request', friend.id)
+    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'friend_request', friend.id)
     if friend
       render status: :created, json: friend
     else
@@ -35,7 +35,7 @@ class Api::FriendsController < ApplicationController
     respond_to do |format|
       if friend.update(p)
         #invite.save
-        Activity.create_activity?(doorkeeper_token.resource_owner_id, 'accepted_friend_request', friend.id)
+        Activity.add_activity?(doorkeeper_token.resource_owner_id, 'accepted_friend_request', friend.id)
         format.json { render :status => :updated, :json => friend }
       else
         format.json { render :status => 400 }
@@ -46,7 +46,7 @@ class Api::FriendsController < ApplicationController
   def decline_friendship
     @friend = Friend.find_by(friend_one_id: params[:id], friend_two_id: doorkeeper_token.resource_owner_id)
     @friend.destroy
-    Activity.create_activity?(doorkeeper_token.resource_owner_id, 'declined_friend', @friend.id)
+    Activity.add_activity?(doorkeeper_token.resource_owner_id, 'declined_friend', @friend.id)
     render json: :deleted
   end
 

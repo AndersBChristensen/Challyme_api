@@ -7,18 +7,9 @@ class Activity < ActiveRecord::Base
   belongs_to :follower
   belongs_to :action
 
-  def create_activity?(u_id, a_type, a_id)
+  def self.add_activity?(u_id, a_type, a_id)
 
-
-    @params = params.permit(user_id: u_id, activity_type: a_type, activity_id: a_id)
-
-    @activity = Activity.create(@params)
-
-    if @activity
-      render status: :created, json: @activity
-    else
-      render :status => 400
-    end
+    Activity.create({user_id: u_id, activity_type: a_type, activity_id: a_id})
 
   end
 

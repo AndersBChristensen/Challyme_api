@@ -3,6 +3,7 @@ class Challenge < ActiveRecord::Base
   has_many :users, through: :invites
   belongs_to :user #lav alias creator
   has_many :tasks
+  has_many :activities
   accepts_nested_attributes_for :tasks
 
   def totals
