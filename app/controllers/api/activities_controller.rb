@@ -9,7 +9,7 @@ class Api::ActivitiesController < ApplicationController
 
     render json: @activities.map {|activity|
       {
-        username: User.find(user_id).username,
+        username: User.find(activity.user_id).username,
         user_id: activity.user_id,
         activity_type: activity.activity_type,
         activity_id: activity.activity_id
