@@ -28,6 +28,7 @@ staging:
 
 production:
   adapter: mysql2
+  host: localhost
   database: challyme_api_production
-  username: root #deploy
-  password: 0193koch #<%= ENV["DATABASE_PASSWORD"] %>
+  username: root
+  password: 0193koch
