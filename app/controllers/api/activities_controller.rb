@@ -7,7 +7,14 @@ class Api::ActivitiesController < ApplicationController
   def get_activities
     @activities = User.find(doorkeeper_token.resource_owner_id).activities.order('created_at DESC')
 
-    render json: @activities
+    render json: @activities.map {|activity|
+      {
+        username: User.username?(activity.user_id),
+        user_id: activity.user_id,
+        activity_type: activity.activity_type,
+        activity_id: activity.activity_id
+      }
+    }
   end
 
 end
