@@ -79,6 +79,8 @@ Rails.application.routes.draw do
     get 'challengeprocess' => 'completes#challengeprocess'
     get 'search_users/:key' => 'users#search_users'
     get 'user_stats/:id' => 'users#user_stats'
+    get 'news/:id' => 'users#news'
+    get 'get_activities/:id' => 'activities#get_activities'
 
     resources :invites
     resources :completes

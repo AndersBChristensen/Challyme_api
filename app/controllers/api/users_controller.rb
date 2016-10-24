@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :user_stats]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :news]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -104,6 +104,15 @@ class Api::UsersController < ApplicationController
 				}
 		}
 
+	end
+
+	def news
+
+		@user = User.find(params[:id])
+
+		@news = @user.challenges.tasks.actions
+
+		render json: @news
 	end
 
 	private
