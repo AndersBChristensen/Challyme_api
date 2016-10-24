@@ -6,7 +6,7 @@ class Api::ActivitiesController < ApplicationController
 
   def get_activities
     @activities = User.find(doorkeeper_token.resource_owner_id).activities
-    
+
     render json: @activities
   end
 

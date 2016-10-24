@@ -22,7 +22,6 @@ class Activity < ActiveRecord::Base
 
       when 'stopped_following'
 
-        @follower = Follower.find(activity.id)
         activity.relevant_users << User.find(activity.activity_id)
 
       when 'friend_request'
@@ -32,7 +31,7 @@ class Activity < ActiveRecord::Base
 
       when 'removed_friend_request'
 
-              activity.relevant_users << User.find(activity.activity_id)
+        activity.relevant_users << User.find(activity.activity_id)
 
       when 'accepted_friend_request'
 
@@ -41,8 +40,10 @@ class Activity < ActiveRecord::Base
 
       when 'declined_friend'
 
-              activity.relevant_users << User.find(activity.activity_id)
+        activity.relevant_users << User.find(activity.activity_id)
 
+      else
+        raise Exception.new('Ikkefsfrsf')
     end
 
   end

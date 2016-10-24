@@ -27,7 +27,7 @@ staging:
   password: <%= ENV["DATABASE_PASSWORD"] %>
 
 production:
-  <<: *default
+  adapter: mysql2
   database: challyme_api_production
-  username: deploy
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  username: root #deploy
+  password: 0193koch #<%= ENV["DATABASE_PASSWORD"] %>

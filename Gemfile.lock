@@ -146,6 +146,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.4.5)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   jquery-ui-rails
   lazy_high_charts
   mandrill_mailer
+  mysql2
   oauth2
   rails (= 4.2.6)
   rails4-autocomplete
@@ -307,4 +309,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

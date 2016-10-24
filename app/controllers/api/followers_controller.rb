@@ -22,8 +22,8 @@ class Api::FollowersController < ApplicationController
 
   def destroy
     @follower = Follower.find_by(follower_one_id: doorkeeper_token.resource_owner_id, follower_two_id: params[:id])
-    @follower.destroy
     Activity.add_activity(doorkeeper_token.resource_owner_id, 'stopped_following', @follower.follower_two_id)
+    @follower.destroy
     render json: :deleted
   end
 
