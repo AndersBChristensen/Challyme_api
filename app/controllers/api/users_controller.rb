@@ -115,6 +115,38 @@ class Api::UsersController < ApplicationController
 		render json: @news
 	end
 
+	def upload_profile_image
+		@p = params.permit(:profileimage, :user_id)
+
+		if User.exists?(id: @p[:user_id])
+
+			@profile_image = User.new(@p)
+			#@room_photo.update_attributes(room_id: :id)
+
+			if @profile_image.save
+				render :status => :created, :json => @profile_image
+			else
+				render :status => 400, json: []
+			end
+		end
+	end
+
+	def upload_cover_image
+		@p = params.permit(:coverimage, :user_id)
+
+		if User.exists?(id: @p[:user_id])
+
+			@profile_image = User.new(@p)
+			#@room_photo.update_attributes(room_id: :id)
+
+			if @profile_image.save
+				render :status => :created, :json => @profile_image
+			else
+				render :status => 400, json: []
+			end
+		end
+	end
+
 	private
 		def set_user
 			user = User.find(params[:id])
