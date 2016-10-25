@@ -1,6 +1,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  has_attached_file :profileimage, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :profileimage, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :coverimage, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :coverimage, content_type: /\Aimage\/.*\z/
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :invites
@@ -80,6 +87,38 @@ class User < ActiveRecord::Base
   def user_id?(id)
     user = User.find(id)
     user.id
+  end
+
+  def upload_profile_image
+    @p = params.permit(:profileimage, :user_id)
+
+    if User.exists?(id: @p[:user_id])
+
+      @profile_image = User.new(@p)
+      #@room_photo.update_attributes(room_id: :id)
+
+      if @profile_image.save
+        render :status => :created, :json => @profile_image
+      else
+        render :status => 400, json: []
+      end
+    end
+  end
+
+  def upload_cover_image
+    @p = params.permit(:coverimage, :user_id)
+
+    if User.exists?(id: @p[:user_id])
+
+      @profile_image = User.new(@p)
+      #@room_photo.update_attributes(room_id: :id)
+      
+      if @profile_image.save
+        render :status => :created, :json => @profile_image
+      else
+        render :status => 400, json: []
+      end
+    end
   end
 
 end
