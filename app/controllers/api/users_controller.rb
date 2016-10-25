@@ -116,15 +116,15 @@ class Api::UsersController < ApplicationController
 	end
 
 	def upload_profile_image
-		@p = params.permit(:profileimage, :id)
-		if User.exists?(id: @p[:id])
+		@p = params.permit(:profileimage)
+		if User.exists?(doorkeeper_token.resource_owner_id)
 
-			@user = User.find(@p[:id])
+			@user = User.find(doorkeeper_token.resource_owner_id)
 
 			profileimage = @p[:profileimage]
 
 			respond_to do |format|
-				if @user.update_attributes(profileimage: profileimage)
+				if @user.update(profileimage)
 					#invite.save
 					format.json { render :status => :ok, json: :updated }
 				else
