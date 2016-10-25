@@ -82,3 +82,5 @@ gem 'vpim', '~> 13.11.11'
 gem 'rails4-autocomplete'
 
 gem 'jquery-ui-rails'
+
+gem "paperclip", '~> 5.0.0'
