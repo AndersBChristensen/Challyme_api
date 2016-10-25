@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025071353) do
+ActiveRecord::Schema.define(version: 20161025072541) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -202,6 +202,10 @@ ActiveRecord::Schema.define(version: 20161025071353) do
     t.string   "profileimage_content_type"
     t.integer  "profileimage_file_size"
     t.datetime "profileimage_updated_at"
+    t.string   "coverimage_file_name"
+    t.string   "coverimage_content_type"
+    t.integer  "coverimage_file_size"
+    t.datetime "coverimage_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
