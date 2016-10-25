@@ -1,1 +1,0 @@
-Paperclip.options[:content_type_mappings] = { jpg: %w(image/jpeg),png: %w(image/png) }
