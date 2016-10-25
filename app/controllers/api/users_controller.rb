@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :show]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
