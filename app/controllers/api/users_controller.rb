@@ -147,12 +147,36 @@ class Api::UsersController < ApplicationController
 		end
 	end
 
+	def remove_profile_image
+		@user = User.find(params[:user_id])
+
+		@user.profileimage = nil
+
+		if @user.save
+			render :status => :created, :json => @user
+		else
+			render :status => 400, json: []
+		end
+	end
+
+	def remove_cover_image
+		@user = User.find(params[:user_id])
+
+		@user.coverimage = nil
+
+		if @user.save
+			render :status => :created, :json => @user
+		else
+			render :status => 400, json: []
+		end
+	end
+
 	private
 		def set_user
 			user = User.find(params[:id])
 			render json: user
 		end
 		def user_params
-      		params.require(:user).permit(:first_name, :last_name, :username, :gender)
+      		params.require(:user).permit(:first_name, :last_name, :username, :gender, :profileimage, :coverimage)
     	end
 end
