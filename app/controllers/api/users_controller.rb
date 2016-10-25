@@ -121,10 +121,8 @@ class Api::UsersController < ApplicationController
 
 			@user = User.find(doorkeeper_token.resource_owner_id)
 
-			profileimage = @p[:profileimage]
-
 			respond_to do |format|
-				if @user.update(profileimage)
+				if @user.update(@p)
 					#invite.save
 					format.json { render :status => :ok, json: :updated }
 				else
@@ -140,10 +138,8 @@ class Api::UsersController < ApplicationController
 
 			@user = User.find(doorkeeper_token.resource_owner_id)
 
-			coverimage = @p[:coverimage]
-
 			respond_to do |format|
-				if @user.update(coverimage)
+				if @user.update(@p)
 					#invite.save
 					format.json { render :status => :ok, json: :updated }
 				else
