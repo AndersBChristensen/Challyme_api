@@ -125,7 +125,7 @@ class Api::UsersController < ApplicationController
 
 				format.html { render :nothing => true }
 				format.js   { render :nothing => true }
-				format.json { render :json => @user, :status => 200 }
+				format.json { render :json => :updated, :status => 200 }
 			else
 				format.html { render :nothing => true }
 				format.js   { render :nothing => true }
