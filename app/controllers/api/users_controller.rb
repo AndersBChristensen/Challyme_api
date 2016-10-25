@@ -122,8 +122,13 @@ class Api::UsersController < ApplicationController
 		respond_to do |format|
 			if @user.present? and @user.update(@p)
 				#invite.save
+
+				format.html { render :nothing => true }
+				format.js   { render :nothing => true }
 				format.json { render :json => @user, :status => 200 }
 			else
+				format.html { render :nothing => true }
+				format.js   { render :nothing => true }
 				format.json { render :status => 400 }
 			end
 		end
