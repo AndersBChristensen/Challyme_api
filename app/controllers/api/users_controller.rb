@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :news]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -116,39 +116,45 @@ class Api::UsersController < ApplicationController
 	end
 
 	def upload_profile_image
-		@p = params.permit(:profileimage, :user_id)
+		@p = params.permit(:profileimage, :id)
+		if User.exists?(id: @p[:id])
 
-		if User.exists?(id: @p[:user_id])
+			@user = User.find(@p[:id])
 
-			@profile_image = User.new(@p)
-			#@room_photo.update_attributes(room_id: :id)
+			profileimage = @p[:profileimage]
 
-			if @profile_image.save
-				render :status => :created, :json => @profile_image
-			else
-				render :status => 400, json: []
+			respond_to do |format|
+				if @user.update_attributes(profileimage: profileimage)
+					#invite.save
+					format.json { render :status => :ok, json: :updated }
+				else
+					format.json { render :status => 400 }
+				end
 			end
 		end
 	end
 
 	def upload_cover_image
-		@p = params.permit(:coverimage, :user_id)
+		@p = params.permit(:coverimage, :id)
+		if User.exists?(id: @p[:id])
 
-		if User.exists?(id: @p[:user_id])
+			@user = User.find(@p[:id])
 
-			@profile_image = User.new(@p)
-			#@room_photo.update_attributes(room_id: :id)
+			coverimage = @p[:coverimage]
 
-			if @profile_image.save
-				render :status => :created, :json => @profile_image
-			else
-				render :status => 400, json: []
+			respond_to do |format|
+				if @user.update_attributes(coverimage: coverimage)
+					#invite.save
+					format.json { render :status => :ok, json: :updated }
+				else
+					format.json { render :status => 400 }
+				end
 			end
 		end
 	end
 
 	def remove_profile_image
-		@user = User.find(params[:user_id])
+		@user = User.find(params[:id])
 
 		@user.profileimage = nil
 
@@ -160,7 +166,7 @@ class Api::UsersController < ApplicationController
 	end
 
 	def remove_cover_image
-		@user = User.find(params[:user_id])
+		@user = User.find(params[:id])
 
 		@user.coverimage = nil
 
