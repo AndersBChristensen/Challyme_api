@@ -1,11 +1,11 @@
 class AddCoverImageToUsers < ActiveRecord::Migration
-  def change
-    def up
-      #add_attachment :users, :coverimage
+  def self.up
+    change_table :users do |t|
+      t.attachment :coverimage
     end
+  end
 
-    def down
-      #remove_attachment :users, :coverimage
-    end
+  def self.down
+    remove_attachment :users, :coverimage
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025072541) do
+ActiveRecord::Schema.define(version: 20161025071353) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
