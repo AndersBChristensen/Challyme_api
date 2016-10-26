@@ -11,6 +11,10 @@ class Activity < ActiveRecord::Base
 
   def task_name_for_activity(a_id)
 
+    action_name = ''
+
+    if Complete.exists?(a_id)
+
     @complete = Complete.find(a_id)
 
     @task_date = @complete.task_date
@@ -19,7 +23,7 @@ class Activity < ActiveRecord::Base
 
     @actions = @task.actions
 
-    action_name = ''
+
 
     @actions.find_each do |action|
       if action.task_id == @task_date.task_id
@@ -28,6 +32,12 @@ class Activity < ActiveRecord::Base
     end
 
     action_name
+
+    else
+
+      action_name
+
+    end
 
   end
 
