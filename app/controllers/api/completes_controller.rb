@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :destroy] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [ :destroy] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -55,7 +55,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
         complete = Complete.create(@p)
 
         if complete
-          Activity.add_activity(2, 'completed_task', complete.id)
+          Activity.add_activity(doorkeeper_token.resource_owner_id, 'completed_task', complete.id)
           render status: :created, json: complete
         else
           render :status => 400, json: $ERROR_INFO
