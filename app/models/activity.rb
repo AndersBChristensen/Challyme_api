@@ -52,7 +52,9 @@ class Activity < ActiveRecord::Base
           @invites = Invite.where(challenge_id: @invite_for_user.challenge_id)
 
           @invites.each do |invite|
-            activity.relevant_users << User.find(invite.user_id)
+            if invite.user_id != activity.user_id
+              activity.relevant_users << User.find(invite.user_id)
+            end
           end
 
 
