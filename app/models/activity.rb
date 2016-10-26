@@ -74,6 +74,30 @@ class Activity < ActiveRecord::Base
 
         activity.relevant_users << User.find(activity.activity_id)
 
+      when 'accepted_challenge'
+
+        @invite_for_user = Invite.find(activity.activity_id)
+
+        @invites = Invite.where(challenge_id: @invite_for_user.challenge_id)
+
+        @invites.each do |invite|
+          if invite.user_id != activity.user_id
+            activity.relevant_users << User.find(invite.user_id)
+          end
+        end
+
+      when 'declined_challenge'
+
+        @invite_for_user = Invite.find(activity.activity_id)
+
+        @invites = Invite.where(challenge_id: @invite_for_user.challenge_id)
+
+        @invites.each do |invite|
+          if invite.user_id != activity.user_id
+            activity.relevant_users << User.find(invite.user_id)
+          end
+        end
+
       when 'completed_task'
 
         @complete = Complete.find(activity.activity_id)
