@@ -44,8 +44,17 @@ class Activity < ActiveRecord::Base
 
       when 'completed_task'
 
-        @friend = Friend.find(activity.activity_id)
-        activity.relevant_users << User.find(@friend.friend_two)
+        @complete = Complete.find(activity.activity_id)
+        puts(@complete.invite_id)
+        @invite_for_user = Invite.find(@complete.invite_id)
+        puts(@invite_for_user.challenge_id)
+
+          @invites = Invite.where(challenge_id: @invite_for_user.challenge_id)
+
+          @invites.each do |invite|
+            activity.relevant_users << User.find(invite.user_id)
+          end
+
 
       else
         raise Exception.new('Ikkefsfrsf')
