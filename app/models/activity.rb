@@ -78,16 +78,18 @@ class Activity < ActiveRecord::Base
 
         @invite_for_user = Invite.find(activity.activity_id)
 
+        @challenge = Challenge.find(@invite_for_user.challenge_id)
 
-        activity.relevant_users << User.find(@invite_for_user.user_id)
+        activity.relevant_users << User.find(@challenge.user_id)
 
 
       when 'declined_challenge'
 
         @invite_for_user = Invite.find(activity.activity_id)
 
+        @challenge = Challenge.find(@invite_for_user.challenge_id)
 
-        activity.relevant_users << User.find(@invite_for_user.user_id)
+        activity.relevant_users << User.find(@challenge.user_id)
 
       when 'completed_task'
 
