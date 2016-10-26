@@ -23,7 +23,7 @@ class Api::InvitesController < ApplicationController
 
 	def update
 		invite = Invite.find(params[:id])
-		p = params.require(:invite).permit(:accepted)
+		p = params.permit(:accepted)
 
 		respond_to do |format|
 			if invite.update(p)
