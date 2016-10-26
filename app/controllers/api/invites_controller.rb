@@ -25,15 +25,14 @@ class Api::InvitesController < ApplicationController
 		invite = Invite.find(params[:id])
 		p = params.permit(:accepted)
 
+		if p[:accepted] == true
+			Activity.add_activity(doorkeeper_token.resource_owner_id, 'accepted_challenge', invite.id)
+		elsif p[:accepted] == false
+			Activity.add_activity(doorkeeper_token.resource_owner_id, 'declined_challenge', invite.id)
+		end
+
 		respond_to do |format|
 			if invite.update(p)
-
-				if p[:accepted] == true
-					Activity.add_activity(doorkeeper_token.resource_owner_id, 'accepted_challenge', invite.id)
-				elsif p[:accepted] == false
-					Activity.add_activity(doorkeeper_token.resource_owner_id, 'declined_challenge', invite.id)
-				end
-
 				format.json { render :status => :updated, :json => invite }
 			else
 				format.json { render :status => 400 }
