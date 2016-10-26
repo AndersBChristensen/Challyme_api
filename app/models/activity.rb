@@ -9,11 +9,11 @@ class Activity < ActiveRecord::Base
 
   has_and_belongs_to_many :relevant_users, class_name: 'User'
 
-  def task_name_for_activity(a_id)
+  def task_name_for_activity(a_type, a_id)
 
     action_name = ''
 
-    if Complete.exists?(a_id)
+    if Complete.exists?(a_id) && a_type == 'completed_task'
 
     @complete = Complete.find(a_id)
 
