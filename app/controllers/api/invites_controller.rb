@@ -27,6 +27,8 @@ class Api::InvitesController < ApplicationController
 
 		invite = Invite.find(p[:id])
 
+		puts(p[:accepted])
+
 		if p[:accepted] == true
 			Activity.add_activity(doorkeeper_token.resource_owner_id, 'accepted_challenge', invite.id)
 		elsif p[:accepted] == false
