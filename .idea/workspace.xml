@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/invites_controller.rb" line="60" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/api/invites_controller.rb" line="62" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
@@ -437,8 +437,8 @@
       <file leaf-file-name="invites_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/invites_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1304,7 +1304,7 @@
       <workItem from="1475744621203" duration="1911000" />
       <workItem from="1476269205605" duration="5520000" />
       <workItem from="1476340539458" duration="34753000" />
-      <workItem from="1477288056421" duration="36403000" />
+      <workItem from="1477288056421" duration="36573000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1356,7 +1356,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182858000" />
+    <option name="totallyTimeSpent" value="183028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1831,8 +1831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/invites_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -22,8 +22,10 @@ class Api::InvitesController < ApplicationController
 	end
 
 	def update
-		invite = Invite.find(params[:id])
-		p = params.permit(:accepted)
+
+		p = params.permit(:accepted, :id)
+
+		invite = Invite.find(p[:id])
 
 		if p[:accepted] == true
 			Activity.add_activity(doorkeeper_token.resource_owner_id, 'accepted_challenge', invite.id)
