@@ -9,6 +9,28 @@ class Activity < ActiveRecord::Base
 
   has_and_belongs_to_many :relevant_users, class_name: 'User'
 
+  def task_name_for_activity(a_id)
+
+    @complete = Complete.find(activity.activity_id)
+
+    @task_date = @complete.task_date
+
+    @task = @task_date.task
+
+    @actions = @task.actions
+
+    action_name = ''
+
+    @actions.find_each do |action|
+      if action.task_id == @task_date.task_id
+        action_name = action.name
+      end
+    end
+
+    action_name
+
+  end
+
   def self.add_activity(u_id, a_type, a_id)
 
     activity = Activity.create({user_id: u_id, activity_type: a_type, activity_id: a_id})
@@ -45,9 +67,8 @@ class Activity < ActiveRecord::Base
       when 'completed_task'
 
         @complete = Complete.find(activity.activity_id)
-        puts(@complete.invite_id)
+
         @invite_for_user = Invite.find(@complete.invite_id)
-        puts(@invite_for_user.challenge_id)
 
           @invites = Invite.where(challenge_id: @invite_for_user.challenge_id)
 
