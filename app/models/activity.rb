@@ -41,6 +41,28 @@ class Activity < ActiveRecord::Base
 
   end
 
+  def challenge_title_for_activity(a_id)
+
+    challenge_title = ''
+
+    if Invite.exists?(a_id)
+
+      @invite = Invite.find(a_id)
+
+      @challenge = Challenge.find(@invite.challenge_id)
+
+      challenge_title = @challenge.title
+
+    else
+
+      challenge_title = ''
+
+    end
+
+    challenge_title
+
+  end
+
   def self.add_activity(u_id, a_type, a_id)
 
     activity = Activity.create({user_id: u_id, activity_type: a_type, activity_id: a_id})

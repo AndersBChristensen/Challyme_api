@@ -13,7 +13,8 @@ class Api::ActivitiesController < ApplicationController
         user_id: activity.user_id,
         activity_type: activity.activity_type,
         activity_id: activity.activity_id,
-        task_name: activity.task_name_for_activity(activity.activity_type, activity.activity_id)
+        task_name: activity.task_name_for_activity(activity.activity_type, activity.activity_id),
+        challenge_name: activity.challenge_title_for_activity(activity.activity_id)
       }
     }
   end
