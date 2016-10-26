@@ -41,19 +41,21 @@ left join completes as completed on task_dates.id = completed.task_date_id
     # Complete a challenge. Checks if the id's exist in the tables.
     #
 
-    if Complete.where(invite_id: params[:complete][:invite_id]).count > 0 && Complete.where(task_dates_id: params[:complete][:task_dates_id]).count > 0
+    @p = params.permit(:invite_id, :task_date_id, :image)
+
+    if Complete.where(invite_id: @p[:invite_id]).count > 0 && Complete.where(task_dates_id: @p[:task_date_id]).count > 0
       render json: {
           status: 400,
           message: "error"
       }.to_json
     else
 
-      if  Invite.where(id: params[:complete][:invite_id]).count > 0 && TaskDate.where(id: params[:complete][:task_dates_id]).count > 0
+      if  Invite.where(id: @p[:invite_id]).count > 0 && TaskDate.where(id: @p[:task_date_id]).count > 0
 
-        param = params.require(:complete).permit(:task_dates_id, :invite_id, :image, :video)
-        complete = Complete.create(param)
+        complete = Complete.create(@p)
 
         if complete
+          Activity.add_activity(doorkeeper_token.resource_owner_id, 'completed_task', complete.id)
           render status: :created, json: complete
         else
           render :status => 400, json: $ERROR_INFO

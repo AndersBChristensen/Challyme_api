@@ -42,6 +42,11 @@ class Activity < ActiveRecord::Base
 
         activity.relevant_users << User.find(activity.activity_id)
 
+      when 'completed_task'
+
+        @friend = Friend.find(activity.activity_id)
+        activity.relevant_users << User.find(@friend.friend_two)
+
       else
         raise Exception.new('Ikkefsfrsf')
     end
