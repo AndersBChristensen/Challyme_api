@@ -11,7 +11,7 @@ class Activity < ActiveRecord::Base
 
   def task_name_for_activity(a_id)
 
-    @complete = Complete.find(activity.activity_id)
+    @complete = Complete.find(a_id)
 
     @task_date = @complete.task_date
 
