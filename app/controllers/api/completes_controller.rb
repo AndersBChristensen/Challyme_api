@@ -36,6 +36,20 @@ left join completes as completed on task_dates.id = completed.task_date_id
 
   end
 
+  def showAllActionsForInvite
+
+    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.task_date_id as completed', 'invites.id')
+                  .joins('inner join users on invites.user_id = users.id
+inner join challenges on invites.challenge_id = challenges.id
+inner join tasks on challenges.id = tasks.challenge_id
+inner join actions on tasks.id = actions.task_id
+inner join task_dates on tasks.id = task_dates.task_id
+left join completes as completed on task_dates.id = completed.task_date_id
+').where(user_id: doorkeeper_token.resource_owner_id).where(id: params[:id]).where('task_dates.date >= ?', Date.today).order('task_dates.date ASC')
+
+    render json: actions
+  end
+
   def create
     #
     # Complete a challenge. Checks if the id's exist in the tables.

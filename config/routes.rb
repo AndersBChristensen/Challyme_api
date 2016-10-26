@@ -76,6 +76,7 @@ Rails.application.routes.draw do
     get 'follows/:id' => 'followers#follows'
     post 'challenges/create_with_receivers' => 'challenges#create_with_receivers'
     get 'showAllActionForUser' => 'completes#showAllActionForUser'
+    get 'showAllActionsForInvite/:id' => 'completes#showAllActionsForInvite'
     get 'challengeprocess' => 'completes#challengeprocess'
     get 'search_users/:key' => 'users#search_users'
     get 'user_stats/:id' => 'users#user_stats'
