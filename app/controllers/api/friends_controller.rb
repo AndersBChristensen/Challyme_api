@@ -88,14 +88,16 @@ class Api::FriendsController < ApplicationController
 
     @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: @p[:id], val2: @p[:id])
 
+    dk_id = @p[:id]
+
     if @friends.count > 0
       render json: @friends.map  {|friend|
         {
-            id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id]),
-            username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).username,
-            firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).first_name,
-            lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).last_name,
-            profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).profileimage.url(:medium)
+            id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id),
+            username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).username,
+            firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).first_name,
+            lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).last_name,
+            profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).profileimage.url(:medium)
         }
       }
     else
