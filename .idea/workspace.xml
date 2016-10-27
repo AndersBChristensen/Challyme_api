@@ -427,8 +427,8 @@
       <file leaf-file-name="followers_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/followers_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="45" column="198" selection-start-line="45" selection-start-column="198" selection-end-line="45" selection-end-column="198" />
+            <state relative-caret-position="230">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -1304,7 +1304,7 @@
       <workItem from="1475744621203" duration="1911000" />
       <workItem from="1476269205605" duration="5520000" />
       <workItem from="1476340539458" duration="34753000" />
-      <workItem from="1477288056421" duration="44944000" />
+      <workItem from="1477288056421" duration="45191000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1356,7 +1356,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191399000" />
+    <option name="totallyTimeSpent" value="191646000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1831,8 +1831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/followers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="45" column="198" selection-start-line="45" selection-start-column="198" selection-end-line="45" selection-end-column="198" />
+        <state relative-caret-position="230">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding />
         </state>
       </provider>
