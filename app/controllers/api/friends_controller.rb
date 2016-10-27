@@ -90,6 +90,10 @@ class Api::FriendsController < ApplicationController
 
     dk_id = @p[:id]
 
+    puts(dk_id)
+    puts(@p[:id])
+    puts(@friends)
+
     if @friends.count > 0
       render json: @friends.map  {|friend|
         {

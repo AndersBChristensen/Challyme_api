@@ -14,6 +14,7 @@ class Friend < ActiveRecord::Base
     elsif f2_id == dk_id
       id = f1_id
     end
+
     id
 
   end
