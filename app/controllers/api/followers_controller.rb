@@ -43,7 +43,7 @@ class Api::FollowersController < ApplicationController
 
   def followers
     @followers = Follower
-                     .select('friendOne.username as username', 'friendOne.first_name as firstname', 'friendOne.last_name as lastname', 'friendOne.id as user_id' )
+                     .select('friendOne.username as username', 'friendOne.first_name as firstname', 'friendOne.last_name as lastname', 'friendOne.id as user_id', 'friendOne.profileimage.url(:thumb)')
                      .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")
                      .joins("left join users as friendTwo on followers.follower_two_id = friendTwo.id")
                      .where(follower_two_id: params[:id])
