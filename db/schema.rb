@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025071353) do
+ActiveRecord::Schema.define(version: 20161027124739) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20161025071353) do
     t.integer  "user_id"
     t.string   "activity_type"
     t.integer  "activity_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "type",          default: 0
+    t.integer  "status",        default: 0
   end
 
   create_table "activities_users", id: false, force: :cascade do |t|
