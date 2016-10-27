@@ -121,7 +121,7 @@ class Api::UsersController < ApplicationController
 
 		@url = @user.profileimage.url(:medium)
 
-		render json: @url.to_json()
+		render json: @url
 	end
 
 	def cover_image_medium_url
@@ -130,7 +130,7 @@ class Api::UsersController < ApplicationController
 
 		@url = @user.coverimage.url(:medium)
 
-		render json: @url.to_json()
+		render json: @url
 	end
 
 	def upload_profile_image
