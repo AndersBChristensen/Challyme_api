@@ -143,7 +143,7 @@ class Api::UsersController < ApplicationController
 
 			respond_to do |format|
 				if @user.update_attributes(profileimage: image_data)
-					#invite.save
+					Activity.add_activity(doorkeeper_token.resource_owner_id, 'uploaded_new_profile_image', @user.id)
 					format.json { render :status => :ok, json: :updated }
 				else
 					format.json { render :status => 400 }
@@ -162,7 +162,7 @@ class Api::UsersController < ApplicationController
 
 			respond_to do |format|
 				if @user.update_attributes(coverimage: image_data)
-					#invite.save
+					Activity.add_activity(doorkeeper_token.resource_owner_id, 'uploaded_new_cover_image', @user.id)
 					format.json { render :status => :ok, json: :updated }
 				else
 					format.json { render :status => 400 }

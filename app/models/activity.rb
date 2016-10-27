@@ -113,6 +113,22 @@ class Activity < ActiveRecord::Base
 
         activity.relevant_users << User.find(@challenge.user_id)
 
+      when 'uploaded_new_profile_image'
+
+        @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: u_id, val2: u_id)
+
+        @friends.each do |friend|
+          activity.relevant_users << User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, u_id))
+        end
+
+      when 'uploaded_new_cover_image'
+
+        @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: u_id, val2: u_id)
+
+        @friends.each do |friend|
+          activity.relevant_users << User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, u_id))
+        end
+
       when 'completed_task'
 
         @complete = Complete.find(activity.activity_id)
