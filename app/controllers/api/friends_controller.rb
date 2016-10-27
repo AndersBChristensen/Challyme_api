@@ -82,4 +82,19 @@ class Api::FriendsController < ApplicationController
     render json:  friends
   end
 
+  def show_friends
+
+    @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: doorkeeper_token.resource_owner_id, val2: doorkeeper_token.resource_owner_id)
+
+    render json: @friends.map  {|friend|
+      {
+          id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id),
+          username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).username,
+          firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).first_name,
+          lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).last_name
+      }
+    }
+
+  end
+
 end
