@@ -10,9 +10,9 @@ class Friend < ActiveRecord::Base
     logger.info(f2_id)
     logger.info(dk_id)
 
-    @val1 = f1_id
-    @val2 = f2_id
-    @val3 = dk_id
+    @val1 = Integer(f1_id)
+    @val2 = Integer(f2_id)
+    @val3 = Integer(dk_id)
 
     if @val1 == @val3
       logger.info('inside if')
