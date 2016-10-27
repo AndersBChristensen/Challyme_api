@@ -10,11 +10,11 @@ class Friend < ActiveRecord::Base
     logger.info(f2_id)
     logger.info(dk_id)
 
-    if f1_id == dk_id
+    if [f1_id] == [dk_id]
       logger.info('inside if')
       id = f2_id
       id
-    elsif f2_id == dk_id
+    elsif [f2_id] == [dk_id]
       logger.info('elseif')
       id = f1_id
       id

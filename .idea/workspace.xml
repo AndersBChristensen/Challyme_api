@@ -417,8 +417,8 @@
       <file leaf-file-name="friend.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/friend.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="300">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -1294,7 +1294,7 @@
       <workItem from="1475744621203" duration="1911000" />
       <workItem from="1476269205605" duration="5520000" />
       <workItem from="1476340539458" duration="34753000" />
-      <workItem from="1477288056421" duration="43115000" />
+      <workItem from="1477288056421" duration="43286000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1346,7 +1346,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189570000" />
+    <option name="totallyTimeSpent" value="189741000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1821,8 +1821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/friend.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="300">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding />
         </state>
       </provider>
