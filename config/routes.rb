@@ -83,7 +83,7 @@ Rails.application.routes.draw do
     get 'news/:id' => 'users#news'
     get 'get_activities' => 'activities#get_activities'
     post 'upload_profile_image/:id' => 'users#upload_profile_image'
-    put 'upload_cover_image' => 'users#upload_cover_image'
+    post 'upload_cover_image/:id' => 'users#upload_cover_image'
     get 'remove_profile_image/:id' => 'users#remove_profile_image'
     get 'remove_cover_image/:id' => 'users#remove_cover_image'
 
