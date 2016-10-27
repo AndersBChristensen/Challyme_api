@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :cover_image_medium_url, :profile_image_medium_url]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -120,6 +120,15 @@ class Api::UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		@url = @user.profileimage.url(:profile_image_medium_url)
+
+		render json: @url
+	end
+
+	def cover_image_medium_url
+
+		@user = User.find(params[:id])
+
+		@url = @user.coverimage.url(:cover_image_medium_url)
 
 		render json: @url
 	end

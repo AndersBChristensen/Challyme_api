@@ -87,6 +87,9 @@ Rails.application.routes.draw do
     get 'remove_profile_image/:id' => 'users#remove_profile_image'
     get 'remove_cover_image/:id' => 'users#remove_cover_image'
 
+    get 'profile_image_medium_url/:id' => 'users#profile_image_medium_url'
+    get 'cover_image_medium_url/:id' => 'users#cover_image_medium_url'
+
     resources :invites
     resources :completes
     resources :friends
