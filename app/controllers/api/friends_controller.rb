@@ -91,7 +91,8 @@ class Api::FriendsController < ApplicationController
           id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id),
           username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).username,
           firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).first_name,
-          lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).last_name
+          lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).last_name,
+          profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, doorkeeper_token.resource_owner_id)).profileimage.url(:medium)
       }
     }
 
