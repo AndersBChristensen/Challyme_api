@@ -106,10 +106,10 @@ left join completes as completed on task_dates.id = completed.task_date_id
   end
 
   def upload_complete_image
-    @p = params.permit(:image_data, :id, :task_date_id)
-    if Complete.exists?(invite_id: @p[:id], task_date_id: @p[:task_date_id])
+    @p = params.permit(:image_data, :id, :task_date_id, :invite_id)
+    if Complete.exists?(id: @p[:id])
 
-      @complete = Complete.where(invite_id: @p[:id], task_date_id: @p[:task_date_id])
+      @complete = Complete.find(@p[:id])
 
       image_data = @p[:image_data]
 
