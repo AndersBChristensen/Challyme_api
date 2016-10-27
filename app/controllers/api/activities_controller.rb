@@ -5,7 +5,7 @@ class Api::ActivitiesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def get_activities
-    @activities = User.find(doorkeeper_token.resource_owner_id).activities.where(status: 0).order('created_at DESC')
+    @activities = User.find(doorkeeper_token.resource_owner_id).activities.where(feed_type: 0).order('created_at DESC')
 
     render json: @activities.map {|activity|
       {

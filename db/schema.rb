@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027124739) do
+ActiveRecord::Schema.define(version: 20161027125856) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20161027124739) do
     t.integer  "activity_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.integer  "type",          default: 0
+    t.integer  "feed_type",     default: 0
     t.integer  "status",        default: 0
   end
 
