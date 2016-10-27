@@ -115,6 +115,15 @@ class Api::UsersController < ApplicationController
 		render json: @news
 	end
 
+	def profile_image_medium_url
+
+		@user = User.find(params[:id])
+
+		@url = @user.profileimage.url(:profile_image_medium_url)
+
+		render json: @url
+	end
+
 	def upload_profile_image
 		@p = params.permit(:image_data, :id)
 		if User.exists?(id: @p[:id])
