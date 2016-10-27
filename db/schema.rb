@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027164813) do
+ActiveRecord::Schema.define(version: 20161027175100) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "countertype"
@@ -68,13 +68,14 @@ ActiveRecord::Schema.define(version: 20161027164813) do
     t.string   "video"
     t.string   "image"
     t.integer  "invite_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "task_date_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "description",        limit: 2200
   end
 
   add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
