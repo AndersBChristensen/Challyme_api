@@ -90,13 +90,6 @@ class Api::FriendsController < ApplicationController
 
     dk_id = @p[:id]
 
-    puts(dk_id)
-    puts(@p[:id])
-    puts(@friends)
-    logger.info(dk_id)
-    logger.info(@p[:id])
-    logger.info(@friends)
-
     if @friends.count > 0
       render json: @friends.map  {|friend|
         {
@@ -104,7 +97,7 @@ class Api::FriendsController < ApplicationController
             username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).username,
             firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).first_name,
             lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).last_name,
-            profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).profileimage.url(:medium)
+            profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, dk_id)).profileimage.url(:thumb)
         }
       }
     else
