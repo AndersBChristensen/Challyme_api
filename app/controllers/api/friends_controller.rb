@@ -84,15 +84,17 @@ class Api::FriendsController < ApplicationController
 
   def show_friends
 
-    @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: params[:id], val2: params[:id])
+    @p = params.permit(:id)
+
+    @friends = Friend.where(status: 1).where('friend_one_id = :val1 OR friend_two_id = :val2', val1: @p[:id], val2: @p[:id])
 
     render json: @friends.map  {|friend|
       {
-          id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, params[:id]),
-          username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, params[:id])).username,
-          firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, params[:id])).first_name,
-          lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, params[:id])).last_name,
-          profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, params[:id])).profileimage.url(:medium)
+          id: friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id]),
+          username: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).username,
+          firstname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).first_name,
+          lastname: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).last_name,
+          profile_image: User.find(friend.friend_id(friend.friend_one_id, friend.friend_two_id, @p[:id])).profileimage.url(:medium)
       }
     }
 
