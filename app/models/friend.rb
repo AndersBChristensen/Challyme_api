@@ -9,7 +9,7 @@ class Friend < ActiveRecord::Base
     logger.info(f1_id)
     logger.info(f2_id)
     logger.info(dk_id)
-    
+
     id = 0
 
     if f1_id == dk_id
@@ -19,6 +19,8 @@ class Friend < ActiveRecord::Base
       id = f1_id
     end
 
+
+    logger.info(id)
     id
 
   end
