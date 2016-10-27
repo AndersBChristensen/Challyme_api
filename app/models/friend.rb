@@ -6,6 +6,10 @@ class Friend < ActiveRecord::Base
 
   def friend_id(f1_id, f2_id, dk_id)
 
+    logger.info(f1_id)
+    logger.info(f2_id)
+    logger.info(dk_id)
+    
     id = 0
 
     if f1_id == dk_id
