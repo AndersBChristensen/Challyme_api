@@ -44,13 +44,16 @@ class Api::FollowersController < ApplicationController
   # 'friendOne.profileimage.url(:thumb)'
 
   def followers
-    @followers = Follower
-                     .select('friendOne.username as username', 'friendOne.first_name as firstname', 'friendOne.last_name as lastname', 'friendOne.id as user_id')
-                     .joins("left join users as friendOne on followers.follower_one_id = friendOne.id")
-                     .joins("left join users as friendTwo on followers.follower_two_id = friendTwo.id")
-                     .where(follower_two_id: params[:id])
+    @followers = Follower.where(follower_two_id: params[:id])
 
-    render json: @followers
+    render json: @followers.map {|follower|
+    {
+        id: follower.follower_one_id,
+        username: User.find(follower.follower_one_id).username,
+        firstname: User.find(follower.follower_one_id).first_name,
+        lastname: User.find(follower.follower_one_id).last_name,
+        profile_image: User.find(follower.follower_one_id).profileimage.url(:thumb)
+    }}
   end
 
   def follows
