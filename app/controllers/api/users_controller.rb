@@ -119,7 +119,7 @@ class Api::UsersController < ApplicationController
 
 		@user = User.find(params[:id])
 
-		@url = @user.profileimage.url(:profile_image_medium_url)
+		@url = @user.profileimage.url(:medium)
 
 		render json: @url
 	end
@@ -128,7 +128,7 @@ class Api::UsersController < ApplicationController
 
 		@user = User.find(params[:id])
 
-		@url = @user.coverimage.url(:cover_image_medium_url)
+		@url = @user.coverimage.url(:medium)
 
 		render json: @url
 	end
