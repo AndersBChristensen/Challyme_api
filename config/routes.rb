@@ -82,6 +82,7 @@ Rails.application.routes.draw do
     get 'user_stats/:id' => 'users#user_stats'
     get 'news/:id' => 'users#news'
     get 'get_activities' => 'activities#get_activities'
+    post 'upload_complete_image/:id' => 'completes#upload_complete_image'
     post 'upload_profile_image/:id' => 'users#upload_profile_image'
     post 'upload_cover_image/:id' => 'users#upload_cover_image'
     get 'remove_profile_image/:id' => 'users#remove_profile_image'
