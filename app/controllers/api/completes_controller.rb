@@ -29,7 +29,7 @@ inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
 inner join actions on tasks.id = actions.task_id
 inner join task_dates on tasks.id = task_dates.task_id
-left join completes as completed on task_dates.id = completed.task_date_id
+left join completes as completed on invites.id = completed.invite_id
 ').where(user_id: doorkeeper_token.resource_owner_id).where(:accepted =>  true).where('task_dates.date >= ?', Date.today).order('task_dates.date ASC')
 
     render json: actions
