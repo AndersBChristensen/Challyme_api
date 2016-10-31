@@ -398,7 +398,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="288" selection-start-line="25" selection-start-column="288" selection-end-line="25" selection-end-column="288" />
+              <caret line="25" column="285" selection-start-line="25" selection-start-column="285" selection-end-line="25" selection-end-column="285" />
               <folding />
             </state>
           </provider>
@@ -1296,7 +1296,7 @@
       <workItem from="1476340539458" duration="34753000" />
       <workItem from="1477288056421" duration="48092000" />
       <workItem from="1477574890588" duration="5683000" />
-      <workItem from="1477641253214" duration="7854000" />
+      <workItem from="1477641253214" duration="7972000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1348,7 +1348,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208084000" />
+    <option name="totallyTimeSpent" value="208202000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1793,7 +1793,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="288" selection-start-line="25" selection-start-column="288" selection-end-line="25" selection-end-column="288" />
+          <caret line="25" column="285" selection-start-line="25" selection-start-column="285" selection-end-line="25" selection-end-column="285" />
           <folding />
         </state>
       </provider>
