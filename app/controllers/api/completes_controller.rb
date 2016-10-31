@@ -127,11 +127,12 @@ left join completes as completed on task_dates.id = completed.task_date_id
 
     @p = params.permit(:user_id, :challenge_status)
 
-    @completes = Complete.select('completes.created_at as complete_date', 'completes.description', 'completes.image', 'tasks.title AS task_title', 'users.username as username', 'users.first_name as firstname', 'users.last_name as lastname', 'challenges.title AS challenge_title').joins('LEFT JOIN invites ON completes.invite_id = invites.id
+    @completes = Complete.select('completes.created_at as complete_date', 'completes.description', 'completes.image', 'tasks.title AS task_title', 'actions.name', 'users.username as username', 'users.first_name as firstname', 'users.last_name as lastname', 'challenges.title AS challenge_title').joins('LEFT JOIN invites ON completes.invite_id = invites.id
                                   LEFT JOIN challenges ON invites.challenge_id = challenges.id
                                   LEFT JOIN users ON invites.user_id = users.id
                                   LEFT JOIN task_dates ON completes.task_date_id = task_dates.id
-                                  LEFT JOIN tasks on task_dates.task_id = tasks.id').where('invites.user_id = :val1 AND challenges.status = :val2', val1: @p[:user_id], val2: @p[:challenge_status])
+                                  LEFT JOIN tasks on task_dates.task_id = tasks.id
+                                  LEFT JOIN actions on tasks.id = actions.task_id').where('invites.user_id = :val1 AND challenges.status = :val2', val1: @p[:user_id], val2: @p[:challenge_status])
 
     render json: @completes
 
