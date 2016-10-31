@@ -92,6 +92,8 @@ Rails.application.routes.draw do
     get 'cover_image_medium_url/:id' => 'users#cover_image_medium_url'
     get 'show_friends/:id' => 'friends#show_friends'
 
+    get 'home_feed' => 'completes#home_feed'
+
     resources :invites
     resources :completes
     resources :friends

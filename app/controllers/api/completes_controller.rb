@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [ :destroy] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [ :destroy, :home_feed] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -121,6 +121,20 @@ left join completes as completed on task_dates.id = completed.task_date_id
         end
       end
     end
+  end
+
+  def home_feed
+
+    @p = params.permit(:user_id, :challenge_status)
+
+    @completes = Complete.select('completes.created_at as complete_date', 'completes.description', 'completes.image', 'tasks.title', 'users.username as username', 'users.first_name as firstname', 'users.last_name as lastname', 'challenges.title').joins('LEFT JOIN invites ON completes.invite_id = invites.id
+                                  LEFT JOIN challenges ON invites.challenge_id = challenges.id
+                                  LEFT JOIN users ON invites.user_id = users.id
+                                  LEFT JOIN task_dates ON completes.task_date_id = task_dates.id
+                                  LEFT JOIN tasks on task_dates.task_id = tasks.id').where('invites.user_id = :val1 AND challenges.status = :val2', val1: @p[:user_id], val2: @p[:challenge_status])
+
+    render json: @completes
+
   end
 
   private
