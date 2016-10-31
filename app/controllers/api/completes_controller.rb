@@ -23,7 +23,7 @@ class Api::CompletesController < ApplicationController
     # Show all actions sorted by date, and if they are completed or not.
     #
 
-    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'if (completed.invite_id=invites.id && completed.task_date_id=task_dates.id, yes) else (null) as completed', 'invites.id')
+    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'IF (completed.invite_id=invites.id && completed.task_date_id=task_dates.id, completed.invite_id) ELSE NULL END IF as completed', 'invites.id')
                   .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
