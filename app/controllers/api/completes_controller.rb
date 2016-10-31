@@ -23,10 +23,8 @@ class Api::CompletesController < ApplicationController
     # Show all actions sorted by date, and if they are completed or not.
     #
 
-    #.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id'
-    # , 'invites.user_id as user', 'completed.invite_id as completed', 'invites.id')
-
-    actions = Invite.joins('inner join users on invites.user_id = users.id
+    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.invite_id as completed', 'invites.id')
+                  .joins('inner join users on invites.user_id = users.id
 inner join challenges on invites.challenge_id = challenges.id
 inner join tasks on challenges.id = tasks.challenge_id
 inner join actions on tasks.id = actions.task_id
@@ -34,18 +32,7 @@ inner join task_dates on tasks.id = task_dates.task_id
 left  join completes as completed on invites.id = completed.invite_id
 ').where(user_id: doorkeeper_token.resource_owner_id).where(:accepted =>  true).where('task_dates.date >= ?', Date.today).order('task_dates.date ASC')
 
-    render json: actions.map {|action|
-      {
-        challengetitle: :'challenges.title',
-        action_id: :'actions.id',
-        actionname: :'actions.name',
-        taskdate: :'task_dates.date',
-        taskdate_id: :'task_dates.id',
-        user: :'invites.user_id',
-        id: :'invites.id',
-        completed: :'completed.invite_id'
-      }
-    }
+    render json: actions
 
   end
 
