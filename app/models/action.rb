@@ -48,18 +48,15 @@ class Action < ActiveRecord::Base
 
 	end
 
-	def invite_id(challenge_id)
+	def invite_id(user_id, challenge_id)
 
 		c_id = 0
 
-		if Challenge.find(challenge_id).present?
-			@challenge = Challenge.find(challenge_id)
-
-				if Invite.find_by_challenge_id(@challenge.id).present?
-					@invite = Invite.find_by_challenge_id(@challenge.id)
+				if Invite.find_by_user_id(user_id).present? && Invite.find_by_challenge_id(challenge_id).present?
+					@invite = Invite.find_by(user_id: user_id, challenge_id: challenge_id)
 					c_id = @invite.id
 				end
-		end
+
 		c_id
 	end
 

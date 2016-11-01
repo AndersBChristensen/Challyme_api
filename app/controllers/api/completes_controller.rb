@@ -47,7 +47,6 @@ class Api::CompletesController < ApplicationController
              dates.push(date)
              user_ids.push(invite.user_id)
             end
-
         end
       end
     end
@@ -64,7 +63,7 @@ class Api::CompletesController < ApplicationController
         moduletype: a.action_module_type(a.id),
         moduletime: a.action_module_time(a.id),
         challengetitle: Challenge.find(Task.find(a.task_id).challenge_id).title,
-        invite_id: a.invite_id(Challenge.find(Task.find(a.task_id).challenge_id).id),
+        invite_id: a.invite_id(u, Challenge.find(Task.find(a.task_id).challenge_id),
         user_id: u,
         complete_status: a.complete_status(a.invite_id(Challenge.find(Task.find(a.task_id).challenge_id).id), TaskDate.find(d.id).id)
     }}
