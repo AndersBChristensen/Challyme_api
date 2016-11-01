@@ -4,9 +4,8 @@ class Actionmodule < ActiveRecord::Base
   def as_json(options = {})
     {
         id: self.id,
-        countertype: self.countertype,
-        countertime: self.countertime,
-        text: self.text
+        moduletype: self.moduletype,
+        time: self.time
     }
   end
 end
