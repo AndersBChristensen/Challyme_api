@@ -367,8 +367,8 @@
       <file leaf-file-name="challenges_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+            <state relative-caret-position="468">
+              <caret line="95" column="51" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -1286,7 +1286,7 @@
       <workItem from="1476340539458" duration="34753000" />
       <workItem from="1477288056421" duration="48092000" />
       <workItem from="1477574890588" duration="5683000" />
-      <workItem from="1477641253214" duration="10694000" />
+      <workItem from="1477641253214" duration="11090000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1338,7 +1338,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210924000" />
+    <option name="totallyTimeSpent" value="211320000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1783,8 +1783,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+        <state relative-caret-position="468">
+          <caret line="95" column="51" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="51" />
           <folding />
         </state>
       </provider>

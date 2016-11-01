@@ -67,23 +67,33 @@ class Api::ChallengesController < ApplicationController
   #
   def create_with_receivers
 
-    challenge_params = params.require(:challenge).permit(:title, :prize, :status, :user_id, tasks: [
-        :id, :title,
-        actions: [
-            :id, :name, actionmodule: [
-             :id, :type, :time
-         ]
-        ],
-        task_dates: [:id, :date]
-    ])
+    challenge_params = params.require(:challenge).permit(:title,
+                                                         :prize,
+                                                         :status,
+                                                         :user_id,
+                                                         tasks: [
+                                                                :id,
+                                                                :title,
+                                                                actions: [
+                                                                          :id,
+                                                                          :name,
+                                                                          actionmodule: [
+                                                                                        :id,
+                                                                                        :type,
+                                                                                        :time
+                                                                           ]
+                                                                 ],
+                                                                  task_dates: [
+                                                                              :id,
+                                                                              :date]
+                                                                  ])
 
-    # challenge_params[:challenge][:whatever] = 'something'
-    # puts challenge_params.to_yaml
+
 
     tasks = challenge_params.delete(:tasks).map do |task|
       task[:actions_attributes] = task.delete(:actions).map do |action|
         if action[:actionmodule].present?
-          action[:actionmodule_attributes] = task.delete(:actionmodule)
+          action[:actionmodule_attributes] = action.delete(:actionmodule)
         end
         action
       end
