@@ -41,9 +41,9 @@ class Api::CompletesController < ApplicationController
 
     tasks.each do |task|
       task.task_dates.each do |date|
-        new_date = DateTime.parse(date.date, '%Y/%m/%d')
+
         task.actions.each do |action|
-            if new_date >= Date.today
+            if DateTime.parse(date.date, '%Y/%m/%d') >= Date.today
              actions.push(action)
              dates.push(date)
              user_ids.push(invite.user_id)
