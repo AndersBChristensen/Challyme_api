@@ -71,7 +71,7 @@ class Api::ChallengesController < ApplicationController
         :id, :title,
         actions: [
             :id, :name, actionmodule: [
-             :id, :type, :time, :countertime
+             :id, :type, :time
          ]
         ],
         task_dates: [:id, :date]
