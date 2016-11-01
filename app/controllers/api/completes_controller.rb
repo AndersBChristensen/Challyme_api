@@ -60,7 +60,7 @@ class Api::CompletesController < ApplicationController
     {
         action_id: a.id,
         actionname: a.name,
-        task_id: Task.find(a.task_id).try(:id),
+        task_id: a.task_id,
         taskname: Task.find(a.task_id).try(:title),
         taskdate_id: d.id,
         taskdate: d.date,
