@@ -13,7 +13,6 @@ class Challenge < ActiveRecord::Base
       count = t.task_dates.count * t.actions.count
       total = total + count
     end
-
     total
   end
 

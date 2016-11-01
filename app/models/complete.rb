@@ -5,4 +5,15 @@ class Complete < ActiveRecord::Base
 
 	belongs_to :task_date
   belongs_to :invite
+
+  def as_json(options = {})
+    {
+        id: self.id,
+        invite_id: self.invite_id,
+        challenge_id: self.challenge_id,
+        image: self.image
+
+    }
+  end
+
 end

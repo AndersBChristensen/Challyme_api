@@ -39,7 +39,7 @@ class Action < ActiveRecord::Base
 
 		task_name = ''
 
-		if Task.find(task_id).present?
+		if Task.find_by_id(task_id).present?
 
 			task_name = Task.find(task_id).title
 

@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [ :destroy, :home_feed] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [ :destroy, :home_feed, :showAllActionForUser] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -22,32 +22,29 @@ class Api::CompletesController < ApplicationController
   def showAllActionForUser
     #
     # Show all actions sorted by date, and if they are completed or not.
-    #.where('task_dates.date >= ?', Date.today)
+    #.where('task_dates.date >= ?', Date.today).where('invite.user_id = ?', 3) .where('invite.accepted = ?', true)
 
-    actions = Action.all
-                  .joins('left join actionmodules on actionmodules.action_id = actions.id
-                          inner join tasks on actions.task_id = tasks.id
-                          inner join task_dates on tasks.id = task_dates.task_id
-').order('task_dates.date ASC')
+    invite = Invite.all_actions_for_user(3)
 
 
+    render json: {
+          invites: invite
 
-    render json: actions.map {|action|
-      {
-          action_id: action.id,
-          actionname: action.name,
-          moduletype: action.action_module_type(action.id),
-          moduletime: action.action_module_time(action.id),
-          task_id: action.task_id,
-          taskname: action.task_name_for_action(action.task_id),
-          taskdate_id: TaskDate.find_by_task_id(action.task_id).id,
-          taskdate: TaskDate.find_by_task_id(action.task_id).date,
-          challengetitle: Challenge.find(Task.find(action.task_id).challenge_id).title,
-          invite_id: action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
-          user_id: action.invite_user_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
-          complete_status: action.complete_status(action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id), TaskDate.find_by_task_id(action.task_id).id)
-      }
+
+          #action_id: action.task.id,
+          #actionname: action.name,
+          #moduletype: action.action_module_type(action.id),
+          #moduletime: action.action_module_time(action.id),
+          # task_id: task_date.task_id,
+          # taskname: task_date.task.title,
+          # taskdate_id: task_date.id,
+          # taskdate: task_date.date
+          # #challengetitle: Challenge.find(Task.find(action.task_id).challenge_id).title,
+          #invite_id: action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
+          #user_id: action.invite_user_id(Task.find(action.task_id).challenge_id),
+          #complete_status: action.complete_status(action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id), TaskDate.find_by_task_id(action.task_id).id)
     }
+
 
   end
 

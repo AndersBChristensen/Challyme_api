@@ -23,6 +23,14 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :friends
   accepts_nested_attributes_for :followers
 
+  def as_json(options = {})
+    {
+        id: self.id,
+        username: self.username,
+        first_name: self.first_name,
+        last_name: self.last_name,
+    }
+  end
 
 	def friend_status?(myId, userId)
 			if Friend.where(friend_one_id: myId, friend_two_id: userId, status: 1).count > 0
