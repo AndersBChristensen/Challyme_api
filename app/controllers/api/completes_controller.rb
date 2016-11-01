@@ -42,9 +42,11 @@ class Api::CompletesController < ApplicationController
     tasks.each do |task|
       task.task_dates.each do |date|
         task.actions.each do |action|
-          actions.push(action)
-          dates.push(date)
-          user_ids.push(invite.user_id)
+            if date >= Date.today
+             actions.push(action)
+             dates.push(date)
+             user_ids.push(invite.user_id)
+            end
         end
 
       end
