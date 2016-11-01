@@ -367,8 +367,8 @@
       <file leaf-file-name="challenges_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="95" column="51" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="51" />
+            <state relative-caret-position="258">
+              <caret line="81" column="99" selection-start-line="81" selection-start-column="99" selection-end-line="81" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -445,7 +445,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/home/new.html.slim" />
         <option value="$PROJECT_DIR$/app/views/home/_form.html.slim" />
         <option value="$PROJECT_DIR$/config/locales/doorkeeper.en.yml" />
         <option value="$PROJECT_DIR$/app/models/action_date.rb" />
@@ -495,6 +494,7 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161101071750_rename_action_module_columns.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20161101073848_renametype.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" />
       </list>
     </option>
@@ -1286,7 +1286,7 @@
       <workItem from="1476340539458" duration="34753000" />
       <workItem from="1477288056421" duration="48092000" />
       <workItem from="1477574890588" duration="5683000" />
-      <workItem from="1477641253214" duration="11090000" />
+      <workItem from="1477641253214" duration="11326000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1338,7 +1338,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211320000" />
+    <option name="totallyTimeSpent" value="211556000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1416,14 +1416,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20161012115816_add_correct_references_to_awesome_tables.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20161012110544_add_reference_to_task_and_action.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1773,18 +1765,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20161101073848_renametype.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20161101071750_rename_action_module_columns.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="95" column="51" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="51" />
+        <state relative-caret-position="258">
+          <caret line="81" column="99" selection-start-line="81" selection-start-column="99" selection-end-line="81" selection-end-column="99" />
           <folding />
         </state>
       </provider>

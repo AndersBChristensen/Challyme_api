@@ -79,7 +79,7 @@ class Api::ChallengesController < ApplicationController
                                                                           :name,
                                                                           actionmodule: [
                                                                                         :id,
-                                                                                        :type,
+                                                                                        :moduletype,
                                                                                         :time
                                                                            ]
                                                                  ],
