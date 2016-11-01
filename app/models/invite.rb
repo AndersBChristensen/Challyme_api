@@ -18,6 +18,6 @@ class Invite < ActiveRecord::Base
 		where(user_id: user_id, accepted: true)
 				.includes(challenge: {tasks: :actions, tasks: :task_dates})
 				.includes(:user)
-				.includes(completes: :invite)
+				.includes(:completes)
   end
 end
