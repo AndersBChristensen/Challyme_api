@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027175723) do
+ActiveRecord::Schema.define(version: 20161101071750) do
 
   create_table "actionmodules", force: :cascade do |t|
-    t.integer  "countertype"
+    t.integer  "time"
     t.integer  "countertime"
-    t.string   "text"
+    t.string   "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "action_id"

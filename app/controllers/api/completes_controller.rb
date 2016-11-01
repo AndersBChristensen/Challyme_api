@@ -17,7 +17,6 @@ class Api::CompletesController < ApplicationController
     end
   end
 
-
   def showAllActionForUser
     #
     # Show all actions sorted by date, and if they are completed or not.
