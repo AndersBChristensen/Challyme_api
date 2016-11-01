@@ -32,8 +32,7 @@ class Api::CompletesController < ApplicationController
 
     invites = Invite.where(user_id: 3, accepted: true)
 
-    tasks = []
-    invites.each do |invite|
+    tasks = invites.reduce([]) do |acc, invite|
       tasks = invite.challenge.tasks
 
       tasks.each do |task|
@@ -43,7 +42,7 @@ class Api::CompletesController < ApplicationController
         task_actions = task.actions
         task_dates.each do |task_date|
           task_actions.each do |action|
-            tasks.push({
+            acc.push({
                 taskname: task.title,
                 task_id: task.id,
 
@@ -70,6 +69,7 @@ class Api::CompletesController < ApplicationController
 
 
       end
+      acc
     end
 
     render json: tasks
