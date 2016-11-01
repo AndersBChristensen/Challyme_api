@@ -367,8 +367,8 @@
       <file leaf-file-name="completes_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1296,7 +1296,7 @@
       <workItem from="1476340539458" duration="34753000" />
       <workItem from="1477288056421" duration="48092000" />
       <workItem from="1477574890588" duration="5683000" />
-      <workItem from="1477641253214" duration="33726000" />
+      <workItem from="1477641253214" duration="33942000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1348,7 +1348,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233956000" />
+    <option name="totallyTimeSpent" value="234172000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1920,8 +1920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
           <folding />
         </state>
       </provider>

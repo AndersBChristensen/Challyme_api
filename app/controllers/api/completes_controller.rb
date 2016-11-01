@@ -40,9 +40,13 @@ class Api::CompletesController < ApplicationController
     tasks = invite.challenge.tasks
 
     tasks.each do |task|
+      logger.info "In task"
       task.task_dates.each do |date|
+        logger.info "In date"
         task.actions.each do |action|
+          logger.info "In action"
             if date.date != nil && date.date >= Date.today
+              logger.info "appending"
              actions.push(action)
              dates.push(date)
              user_ids.push(User.find(invite.user_id))
