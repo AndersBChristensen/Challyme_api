@@ -71,7 +71,7 @@ class Api::ChallengesController < ApplicationController
         :id, :title,
         actions: [
             :id, :name, actionmodule: [
-             :id, :text, :countertype, :countertime
+             :id, :type, :time, :countertime
          ]
         ],
         task_dates: [:id, :date]
@@ -83,7 +83,7 @@ class Api::ChallengesController < ApplicationController
     tasks = challenge_params.delete(:tasks).map do |task|
       task[:actions_attributes] = task.delete(:actions).map do |action|
         if action[:actionmodule].present?
-          action[:actionmodule_attributes] = task.delete(:actionmodules)
+          action[:actionmodule_attributes] = task.delete(:actionmodule)
         end
         action
       end
