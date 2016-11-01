@@ -30,7 +30,7 @@ class Api::CompletesController < ApplicationController
      #     invites: invite
     #}
 
-    invites = Invite.all.where(user_id: 2, accepted:true)
+    invites = Invite.all.where(user_id: 3, accepted:true)
 
     actions = []
     dates = []
