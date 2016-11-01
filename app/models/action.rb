@@ -79,11 +79,20 @@ class Action < ActiveRecord::Base
 
 	def complete_status(invite_id, task_date_id)
 
-		status = false
+		status = nil
+
+
 
 		if Complete.find_by_invite_id(invite_id).present? && Complete.find_by_task_date_id(task_date_id).present?
-			status =true
+			status = true
+		else
+			if TaskDate.find(task_date_id).date >= Date.today
+				status = nil
+			else
+				status = false
+			end	
 		end
+
 		puts status.inspect
 		puts invite_id.inspect
 		puts task_date_id.inspect
