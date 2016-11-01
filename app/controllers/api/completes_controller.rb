@@ -43,7 +43,7 @@ class Api::CompletesController < ApplicationController
       task.task_dates.each do |date|
         if date.present?
         task.actions.each do |action|
-            if date.date >= Date.today
+            if date.date != nil && date.date >= Date.today
              actions.push(action)
              dates.push(date)
              user_ids.push(invite.user_id)
