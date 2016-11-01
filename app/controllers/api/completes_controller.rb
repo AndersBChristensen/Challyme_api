@@ -41,8 +41,8 @@ class Api::CompletesController < ApplicationController
 
     tasks.each do |task|
       task.task_dates.each do |date|
+        new_date = DateTime.parse(date.date, '%Y/%m/%d')
         task.actions.each do |action|
-          new_date = DateTime.parse(date.date).strftime("%Y-%m-%d")
             if new_date >= Date.today
              actions.push(action)
              dates.push(date)
