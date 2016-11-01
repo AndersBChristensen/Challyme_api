@@ -30,48 +30,49 @@ class Api::CompletesController < ApplicationController
      #     invites: invite
     #}
 
-    invites = Invite.all.where(user_id: 3, accepted:true)
+    invites = Invite.where(user_id: 3, accepted: true)
 
-    actions = []
-    dates = []
-    user_ids = []
+    tasks = []
     invites.each do |invite|
+      tasks = invite.challenge.tasks
 
-    tasks = invite.challenge.tasks
+      tasks.each do |task|
 
-    tasks.each do |task|
-      logger.info "In task"
-      task.task_dates.each do |date|
-        logger.info "In date"
-        logger.info date.date
-        task.actions.each do |action|
-          logger.info "In action"
-            if date.date != nil && date.date >= Date.today
-              logger.info "appending"
-              actions.push(action)
-              dates.push(date)
-              user_ids.push(User.find(invite.user_id))
-            end
+        logger.info "In task"
+        task_dates = task.task_dates.where('date >= ?', Date.today)
+        task_actions = task.actions
+        task_dates.each do |task_date|
+          task_actions.each do |action|
+            tasks.push({
+                taskname: task.title,
+                task_id: task.id,
+
+                action_id: action.id,
+                actionname: action.name,
+
+                taskdate_id: task_date.id,
+                taskdate: task_date.date,
+
+                moduletype: action.actionmodule.type,
+                moduletime: action.actionmodule.time,
+
+                user_id: invite.user_id,
+
+                complete_status: action.complete_status(invite.id, task_date.id),
+
+                challengetitle: invite.challenge.title,
+                invite_id: invite.id,
+
+             })
+
+          end
         end
+
+
       end
     end
-    end
 
-    render json: actions.zip(dates,user_ids).map{|a,d,u|
-    {
-        action_id: a.id,
-        actionname: a.name,
-        task_id: a.task_id,
-        taskname: Task.find(a.task_id).try(:title),
-        taskdate_id: d.id,
-        taskdate: d.date,
-        moduletype: a.action_module_type(a.id),
-        moduletime: a.action_module_time(a.id),
-        challengetitle: Challenge.find(Task.find(a.task_id).challenge_id).title,
-        invite_id: a.invite_id(u.id, Task.find(a.task_id).challenge_id),
-        user_id: u.id,
-        complete_status: a.complete_status(a.invite_id(u.id, Challenge.find(Task.find(a.task_id).challenge_id).id), TaskDate.find(d.id).id)
-    }}
+    render json: tasks
 
   end
 
