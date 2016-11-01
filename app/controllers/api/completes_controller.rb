@@ -52,7 +52,7 @@ class Api::CompletesController < ApplicationController
                 taskdate_id: task_date.id,
                 taskdate: task_date.date,
 
-                moduletype: action.actionmodule.try(:type),
+                moduletype: action.actionmodule.try(:moduletype),
                 moduletime: action.actionmodule.try(:time),
 
                 user_id: invite.user_id,
