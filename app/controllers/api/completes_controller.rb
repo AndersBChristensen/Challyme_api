@@ -24,27 +24,48 @@ class Api::CompletesController < ApplicationController
     # Show all actions sorted by date, and if they are completed or not.
     #.where('task_dates.date >= ?', Date.today).where('invite.user_id = ?', 3) .where('invite.accepted = ?', true)
 
-    invite = Invite.all_actions_for_user(3)
+    #invite = Invite.all_actions_for_user(3)
 
+    #render json: {
+     #     invites: invite
+    #}
 
-    render json: {
-          invites: invite
+    invites = Invite.all.where(user_id: 2, accepted:true)
 
+    actions = []
+    dates = []
+    user_ids = []
+    invites.each do |invite|
 
-          #action_id: action.task.id,
-          #actionname: action.name,
-          #moduletype: action.action_module_type(action.id),
-          #moduletime: action.action_module_time(action.id),
-          # task_id: task_date.task_id,
-          # taskname: task_date.task.title,
-          # taskdate_id: task_date.id,
-          # taskdate: task_date.date
-          # #challengetitle: Challenge.find(Task.find(action.task_id).challenge_id).title,
-          #invite_id: action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
-          #user_id: action.invite_user_id(Task.find(action.task_id).challenge_id),
-          #complete_status: action.complete_status(action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id), TaskDate.find_by_task_id(action.task_id).id)
-    }
+    tasks = invite.challenge.tasks
 
+    tasks.each do |task|
+      task.task_dates.each do |date|
+        task.actions.each do |action|
+          actions.push(action)
+          dates.push(date)
+          user_ids.push(invite.user_id)
+        end
+
+      end
+    end
+    end
+
+    render json: actions.zip(dates,user_ids).map{|a,d,u|
+    {
+        action_id: a.id,
+        actionname: a.name,
+        task_id: Task.find(a.task_id).try(:id),
+        taskname: Task.find(a.task_id).try(:title),
+        taskdate_id: d.id,
+        taskdate: d.date,
+        moduletype: a.action_module_type(a.id),
+        moduletime: a.action_module_time(a.id),
+        challengetitle: Challenge.find(Task.find(a.task_id).challenge_id).title,
+        invite_id: a.invite_id(Challenge.find(Task.find(a.task_id).challenge_id).id),
+        user_id: u,
+        complete_status: a.complete_status(a.invite_id(Challenge.find(Task.find(a.task_id).challenge_id).id), TaskDate.find(d.id).id)
+    }}
 
   end
 
