@@ -17,21 +17,37 @@ class Api::CompletesController < ApplicationController
     end
   end
 
+
+
   def showAllActionForUser
     #
     # Show all actions sorted by date, and if they are completed or not.
-    #
+    #.where('task_dates.date >= ?', Date.today)
 
-    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.invite_id as completed', 'invites.id')
-                  .joins('inner join users on invites.user_id = users.id
-inner join challenges on invites.challenge_id = challenges.id
-inner join tasks on challenges.id = tasks.challenge_id
-inner join actions on tasks.id = actions.task_id
-inner join task_dates on tasks.id = task_dates.task_id
-left  join completes as completed on invites.id = completed.invite_id
-').where(user_id: doorkeeper_token.resource_owner_id).where(:accepted =>  true).where('task_dates.date >= ?', Date.today).order('task_dates.date ASC')
+    actions = Action.all
+                  .joins('left join actionmodules on actionmodules.action_id = actions.id
+                          inner join tasks on actions.task_id = tasks.id
+                          inner join task_dates on tasks.id = task_dates.task_id
+').order('task_dates.date ASC')
 
-    render json: actions
+
+
+    render json: actions.map {|action|
+      {
+          action_id: action.id,
+          actionname: action.name,
+          moduletype: action.action_module_type(action.id),
+          moduletime: action.action_module_time(action.id),
+          task_id: action.task_id,
+          taskname: action.task_name_for_action(action.task_id),
+          taskdate_id: TaskDate.find_by_task_id(action.task_id).id,
+          taskdate: TaskDate.find_by_task_id(action.task_id).date,
+          challengetitle: Challenge.find(Task.find(action.task_id).challenge_id).title,
+          invite_id: action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
+          user_id: action.invite_user_id(Challenge.find(Task.find(action.task_id).challenge_id).id),
+          complete_status: action.complete_status(action.invite_id(Challenge.find(Task.find(action.task_id).challenge_id).id), TaskDate.find_by_task_id(action.task_id).id)
+      }
+    }
 
   end
 
@@ -98,6 +114,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
           challenge_id: invite.challenge.id,
           challenge_title: invite.challenge.title,
           creator: User.find(invite.challenge.user_id).username,
+          creator_image: User.find(invite.challenge.user_id).profileimage,
           creator_id: invite.challenge.user_id
       }
     }
