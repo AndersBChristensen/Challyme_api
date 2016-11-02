@@ -56,13 +56,21 @@ class Api::InvitesController < ApplicationController
 		#
 		# Getting all the invites the user haven't answered.
 		#
-		invites = Invite
-									.select('invites.id', 'challenges.title', 'users.username as invited', 'users.id as invited_id', 'invited_by.username as invited_by', 'invited_by.id as invited_by_id', 'invites.accepted')
-									.joins("inner join challenges on challenges.id = invites.challenge_id
-													inner join users on invites.user_id = users.id
-													left join users as invited_by on challenges.user_id = invited_by.id")
-									.where(user_id: doorkeeper_token.resource_owner_id).where("accepted IS ?", nil).order('invites.created_at DESC')
-		render json: invites
+
+		invites_for_user = Invite.where(user_id: doorkeeper_token.resource_owner_id).where(accepted: nil).order('created_at DESC')
+
+		render json: invites_for_user.map {|invite|
+			{
+				id: invite.id,
+				title: invite.challenge.title,
+				invited: invite.user.username,
+				invited_id: invite.user.id,
+				invited_by: User.find(invite.challenge.user_id).username,
+				invited_by_profileimage: User.find(invite.challenge.user_id).profileimage.url(:thumb),
+				invited_by_id: invite.challenge.user_id,
+				accepted: invite.accepted
+			}
+		}
 	end
 
 	def showAcceptedChallenges
