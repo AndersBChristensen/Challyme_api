@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101074902) do
+ActiveRecord::Schema.define(version: 20161102075620) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "time"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20161101074902) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "description",        limit: 2200
+    t.string   "moduletype"
+    t.string   "time"
   end
 
   add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
