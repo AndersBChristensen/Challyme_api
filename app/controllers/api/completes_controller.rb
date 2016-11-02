@@ -1,5 +1,5 @@
 class Api::CompletesController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [ :destroy, :home_feed, :showAllActionForUser] #Todo sæt tilbage til at have oauth
+  before_action :doorkeeper_authorize!, except: [ :destroy, :home_feed] #Todo sæt tilbage til at have oauth
   before_action :set_complete, only: [:destroy]
   skip_before_action :verify_authenticity_token
 
@@ -30,7 +30,7 @@ class Api::CompletesController < ApplicationController
      #     invites: invite
     #}
 
-    invites = Invite.where(user_id: 3, accepted: true)
+    invites = Invite.where(user_id: doorkeeper_token.resource_owner_id, accepted: true)
 
     tasks = invites.reduce([]) do |acc, invite|
       tasks = invite.challenge.tasks
