@@ -139,7 +139,7 @@ left join completes as completed on task_dates.id = completed.task_date_id
           challenge_id: invite.challenge.id,
           challenge_title: invite.challenge.title,
           creator: User.find(invite.challenge.user_id).username,
-          creator_image: User.find(invite.challenge.user_id).profileimage,
+          creator_image: User.find(invite.challenge.user_id).profileimage.url(:thumb),
           creator_id: invite.challenge.user_id
       }
     }
