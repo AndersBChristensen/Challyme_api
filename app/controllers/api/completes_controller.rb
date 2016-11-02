@@ -78,16 +78,50 @@ class Api::CompletesController < ApplicationController
 
   def showAllActionsForInvite
 
-    actions = Invite.select('challenges.title as challengetitle','actions.id as action_id', 'actions.name as actionname', 'task_dates.date as taskdate', 'task_dates.id as taskdate_id', 'invites.user_id as user', 'completed.task_date_id as completed', 'invites.id')
-                  .joins('inner join users on invites.user_id = users.id
-inner join challenges on invites.challenge_id = challenges.id
-inner join tasks on challenges.id = tasks.challenge_id
-inner join actions on tasks.id = actions.task_id
-inner join task_dates on tasks.id = task_dates.task_id
-left join completes as completed on task_dates.id = completed.task_date_id
-').where(user_id: doorkeeper_token.resource_owner_id).where(id: params[:id]).where('task_dates.date >= ?', Date.today).order('task_dates.date ASC')
+    invites = Invite.where(user_id: doorkeeper_token.resource_owner_id).where(id: params[:id])
 
-    render json: actions
+    tasks = invites.reduce([]) do |acc, invite|
+      tasks = invite.challenge.tasks
+
+      tasks.each do |task|
+
+        logger.info "In task"
+        task_dates = task.task_dates.where('date >= ?', Date.today)
+        task_actions = task.actions
+        task_dates.each do |task_date|
+          task_actions.each do |action|
+            acc.push({
+                         taskname: task.title,
+                         task_id: task.id,
+
+                         action_id: action.id,
+                         actionname: action.name,
+
+                         taskdate_id: task_date.id,
+                         taskdate: task_date.date,
+
+                         moduletype: action.actionmodule.try(:moduletype),
+                         moduletime: action.actionmodule.try(:time),
+
+                         user_id: invite.user_id,
+
+                         complete_status: action.complete_status(invite.id, task_date.id),
+
+                         challengetitle: invite.challenge.title,
+                         invite_id: invite.id,
+
+                     })
+
+          end
+        end
+
+
+      end
+      acc
+    end
+
+    render json: tasks
+
   end
 
   def create
