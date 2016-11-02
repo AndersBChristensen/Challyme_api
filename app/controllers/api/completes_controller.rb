@@ -129,7 +129,7 @@ class Api::CompletesController < ApplicationController
     # Complete a challenge. Checks if the id's exist in the tables.
     #
 
-    @p = params.permit(:invite_id, :task_date_id, :image, :description)
+    @p = params.permit(:invite_id, :task_date_id, :image, :description, :moduletype, :time)
 
     if Complete.where(invite_id: @p[:invite_id]).count > 0 && Complete.where(task_date_id: @p[:task_date_id]).count > 0
       render json: {
