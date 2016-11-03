@@ -10,7 +10,7 @@ class Complete < ActiveRecord::Base
     {
         id: self.id,
         invite_id: self.invite_id,
-        challenge_id: self.challenge_id,
+        task_date: self.task_date,
         image: self.image,
         moduletype: self.moduletype,
         time: self.time

@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/action.rb" afterPath="$PROJECT_DIR$/app/models/action.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/complete.rb" afterPath="$PROJECT_DIR$/app/models/complete.rb" />
     </list>
     <ignored path="challyme_api.iws" />
@@ -429,8 +427,8 @@
       <file leaf-file-name="complete.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/complete.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="300">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1298,7 +1296,7 @@
       <workItem from="1476340539458" duration="34753000" />
       <workItem from="1477288056421" duration="48092000" />
       <workItem from="1477574890588" duration="5683000" />
-      <workItem from="1477641253214" duration="39468000" />
+      <workItem from="1477641253214" duration="39618000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1350,7 +1348,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239698000" />
+    <option name="totallyTimeSpent" value="239848000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1929,8 +1927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/complete.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
