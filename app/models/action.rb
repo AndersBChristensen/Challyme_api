@@ -77,6 +77,7 @@ class Action < ActiveRecord::Base
 	def complete_status(invite_id, task_date_id)
 
 		if Complete.find_by_invite_id(invite_id).present? && Complete.find_by_task_date_id(task_date_id).present?
+
 			status = true
 		else
 			if TaskDate.find(task_date_id).date >= Date.today

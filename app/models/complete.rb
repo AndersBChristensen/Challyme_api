@@ -11,8 +11,9 @@ class Complete < ActiveRecord::Base
         id: self.id,
         invite_id: self.invite_id,
         challenge_id: self.challenge_id,
-        image: self.image
-
+        image: self.image,
+        moduletype: self.moduletype,
+        time: self.time
     }
   end
 

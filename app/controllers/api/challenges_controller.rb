@@ -100,8 +100,8 @@ class Api::ChallengesController < ApplicationController
       task[:task_dates_attributes] = task.delete(:task_dates)
       task
     end
-    challenge_params[:tasks_attributes] = tasks
 
+    challenge_params[:tasks_attributes] = tasks
 
     challenge_params.permit!
 
