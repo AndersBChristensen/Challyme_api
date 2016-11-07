@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102075620) do
+ActiveRecord::Schema.define(version: 20161107112055) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "time"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161102075620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "action_id"
+    t.integer  "distance"
   end
 
   add_index "actionmodules", ["action_id"], name: "index_actionmodules_on_action_id"
@@ -76,7 +77,8 @@ ActiveRecord::Schema.define(version: 20161102075620) do
     t.datetime "image_updated_at"
     t.text     "description",        limit: 2200
     t.string   "moduletype"
-    t.string   "time"
+    t.integer  "time"
+    t.integer  "distance"
   end
 
   add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
