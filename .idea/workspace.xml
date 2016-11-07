@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/actionmodule.rb" afterPath="$PROJECT_DIR$/app/models/actionmodule.rb" />
     </list>
     <ignored path="challyme_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -364,21 +365,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="challenges_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="challenges_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
+            <state relative-caret-position="-151">
               <caret line="83" column="97" selection-start-line="83" selection-start-column="97" selection-end-line="83" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="completes_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="completes_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1184">
-              <caret line="152" column="22" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="22" />
+            <state relative-caret-position="389">
+              <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actionmodule.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/actionmodule.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -483,19 +494,19 @@
         <option value="$PROJECT_DIR$/db/migrate/20161101071750_rename_action_module_columns.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161101073848_renametype.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161101074902_remove_counter_time.rb" />
-        <option value="$PROJECT_DIR$/app/models/actionmodule.rb" />
         <option value="$PROJECT_DIR$/app/models/challenge.rb" />
         <option value="$PROJECT_DIR$/app/models/invite.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/invites_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161102075620_add_time_and_type_to_completes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/action.rb" />
         <option value="$PROJECT_DIR$/app/models/complete.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161107111734_add_new_features_to_action_modules.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161107112055_add_distance_to_action_modules.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/challenges_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/actionmodule.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" />
       </list>
     </option>
   </component>
@@ -1288,7 +1299,7 @@
       <workItem from="1477574890588" duration="5683000" />
       <workItem from="1477641253214" duration="39996000" />
       <workItem from="1478513948383" duration="12000" />
-      <workItem from="1478513993740" duration="1478000" />
+      <workItem from="1478513993740" duration="1545000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1340,7 +1351,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241716000" />
+    <option name="totallyTimeSpent" value="241783000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1625,13 +1636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/actionmodule.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="614">
@@ -1884,18 +1888,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1184">
-          <caret line="152" column="22" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="22" />
+        <state relative-caret-position="-151">
+          <caret line="83" column="97" selection-start-line="83" selection-start-column="97" selection-end-line="83" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/challenges_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/actionmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="83" column="97" selection-start-line="83" selection-start-column="97" selection-end-line="83" selection-end-column="97" />
+        <state relative-caret-position="120">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="54" column="64" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
           <folding />
         </state>
       </provider>

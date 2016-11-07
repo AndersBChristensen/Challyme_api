@@ -54,6 +54,7 @@ class Api::CompletesController < ApplicationController
 
                 moduletype: action.actionmodule.try(:moduletype),
                 moduletime: action.actionmodule.try(:time),
+                moduledistance: action.actionmodule.try(:distance),
 
                 user_id: invite.user_id,
 

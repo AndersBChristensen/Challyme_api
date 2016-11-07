@@ -5,7 +5,8 @@ class Actionmodule < ActiveRecord::Base
     {
         id: self.id,
         moduletype: self.moduletype,
-        time: self.time
+        time: self.time,
+        distance: self.distance
     }
   end
 end
