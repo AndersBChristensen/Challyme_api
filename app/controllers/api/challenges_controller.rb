@@ -80,7 +80,8 @@ class Api::ChallengesController < ApplicationController
                                                                           actionmodule: [
                                                                                         :id,
                                                                                         :moduletype,
-                                                                                        :time
+                                                                                        :time,
+                                                                                        :distance
                                                                            ]
                                                                  ],
                                                                   task_dates: [
