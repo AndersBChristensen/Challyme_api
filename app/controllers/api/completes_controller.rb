@@ -145,7 +145,7 @@ class Api::CompletesController < ApplicationController
 
         if complete
           Activity.add_activity(doorkeeper_token.resource_owner_id, 'completed_task', complete.id)
-          UserPoint.give_point(doorkeeper_token.resource_owner_id, 'completed_task')
+          UserPoint.give_point(doorkeeper_token.resource_owner_id, 0)
           render status: :created, json: complete
         else
           render :status => 400, json: $ERROR_INFO
