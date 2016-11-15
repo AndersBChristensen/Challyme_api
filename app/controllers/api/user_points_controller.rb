@@ -12,4 +12,18 @@ class Api::UserPointsController < ApplicationController
     end
   end
 
+  def total_points
+
+    @p = params.permit(:user_id)
+
+    @points = UserPoint.where(user_id: @p[:user_id]).count
+
+    if @points
+      render json: @points
+    else
+      render :status => 400, json: 0
+    end
+
+  end
+
 end

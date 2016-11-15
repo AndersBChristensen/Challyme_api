@@ -12,4 +12,5 @@ class UserPoint < ActiveRecord::Base
 
   end
 
+
 end

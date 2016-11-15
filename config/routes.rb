@@ -91,8 +91,9 @@ Rails.application.routes.draw do
     get 'profile_image_medium_url/:id' => 'users#profile_image_medium_url'
     get 'cover_image_medium_url/:id' => 'users#cover_image_medium_url'
     get 'show_friends/:id' => 'friends#show_friends'
-
     get 'home_feed' => 'completes#home_feed'
+
+    get 'total_points' => 'user_points#total_points'
 
     resources :user_points
     resources :invites

@@ -101,7 +101,8 @@ class Api::UsersController < ApplicationController
 						follows: user.who_i_follow(user.id),
 						follows_user: user.who_follow_me(user.id),
 						total_friends: user.total_friends(user.id),
-						pending_friend_status: user.pending_friend_status?(doorkeeper_token.resource_owner_id, user.id)
+						pending_friend_status: user.pending_friend_status?(doorkeeper_token.resource_owner_id, user.id),
+						points: user.get_total_points(user.id)
 				}
 		}
 

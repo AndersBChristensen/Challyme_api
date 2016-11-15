@@ -90,6 +90,17 @@ class User < ActiveRecord::Base
     user.id
   end
 
+  def get_total_points(user_id)
+
+    @points = 0
+
+    if UserPoint.where(user_id: user_id).count > 0
+      @points = UserPoint.where(user_id: user_id).count
+    else
+      @points
+    end
+    
+  end
 
 
 end
