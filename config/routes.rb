@@ -94,6 +94,7 @@ Rails.application.routes.draw do
 
     get 'home_feed' => 'completes#home_feed'
 
+    resources :user_points
     resources :invites
     resources :completes
     resources :friends

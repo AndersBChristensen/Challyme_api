@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
 	end
 
 	def create
-		param = params.require(:user).permit(:first_name, :last_name, :username, :gender, :password, :created_at, :updated_at, :active, :phone, :email, :birthday)
+		param = params.require(:user).permit(:first_name, :last_name, :username, :gender, :password, :created_at, :updated_at, :active, :phone, :email, :birthday, :weight)
 		user = User.create(param)
 		if user
 			render status: :created, json: user
@@ -202,6 +202,6 @@ class Api::UsersController < ApplicationController
 			render json: user
 		end
 		def user_params
-      		params.require(:user).permit(:first_name, :last_name, :username, :gender, :profileimage, :coverimage)
+      		params.require(:user).permit(:first_name, :last_name, :username, :gender, :profileimage, :coverimage, :weight)
     	end
 end
