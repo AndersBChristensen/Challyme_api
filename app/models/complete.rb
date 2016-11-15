@@ -13,7 +13,8 @@ class Complete < ActiveRecord::Base
         task_date: self.task_date,
         image: self.image,
         moduletype: self.moduletype,
-        time: self.time
+        time: self.time,
+        distance: self.distance
     }
   end
 
