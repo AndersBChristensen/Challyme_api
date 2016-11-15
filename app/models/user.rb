@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
     else
       @points
     end
-    
+
   end
 
 

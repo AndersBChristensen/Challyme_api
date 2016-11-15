@@ -1,4 +1,6 @@
 class Api::UserPointsController < ApplicationController
+  before_action :doorkeeper_authorize!, except: []
+  skip_before_action :verify_authenticity_token
 
   def create
 
