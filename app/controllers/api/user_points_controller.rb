@@ -1,6 +1,8 @@
 class Api::UserPointsController < ApplicationController
+
   before_action :doorkeeper_authorize!, except: []
   skip_before_action :verify_authenticity_token
+  before_action :set_user_points, only: [:show, :edit, :destroy]
 
   def create
 
@@ -28,4 +30,10 @@ class Api::UserPointsController < ApplicationController
 
   end
 
+  private
+    def set_invite
+      user_point = UserPoint.find(params[:id])
+
+      render json: user_point
+    end
 end
