@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 	has_many :friends
   has_many :followers
   has_many :activities
+  has_many :user_points
   has_and_belongs_to_many :activities
 	accepts_nested_attributes_for :challenges
 	accepts_nested_attributes_for :invites
