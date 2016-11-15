@@ -367,8 +367,8 @@
       <file leaf-file-name="user_points_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/user_points_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+            <state relative-caret-position="495">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1279,7 +1279,7 @@
       <workItem from="1477641253214" duration="39996000" />
       <workItem from="1478513948383" duration="12000" />
       <workItem from="1478513993740" duration="1763000" />
-      <workItem from="1478588435460" duration="3847000" />
+      <workItem from="1478588435460" duration="3908000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1331,7 +1331,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245848000" />
+    <option name="totallyTimeSpent" value="245909000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1906,8 +1906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/user_points_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+        <state relative-caret-position="495">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding />
         </state>
       </provider>

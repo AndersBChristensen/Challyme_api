@@ -31,7 +31,7 @@ class Api::UserPointsController < ApplicationController
   end
 
   private
-    def set_invite
+    def set_user_points
       user_point = UserPoint.find(params[:id])
 
       render json: user_point
