@@ -2,15 +2,11 @@ class UserPoint < ActiveRecord::Base
 
   belongs_to :user
 
-  def give_point(points_type, user_id)
+  def give_point(point_type, user_id)
 
-    @point = UserPoint.create(points_type: points_type, user_id: user_id)
+    add_point = UserPoint.create({user_id: user_id, point_type: point_type})
 
-    if @point
-      render :status => :created, :json => @point
-    else
-      render :status => 400, json: []
-    end
+    add_point
 
   end
 
