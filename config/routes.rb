@@ -95,6 +95,13 @@ Rails.application.routes.draw do
 
     get 'total_points' => 'user_points#total_points'
 
+
+    delete 'destroy_all_locations/:id' => 'locations#destroy_all_locations'
+    post 'create_all_locations' => 'locations#create_all_locations'
+
+
+    resources :locations
+
     resources :user_points
     resources :invites
     resources :completes

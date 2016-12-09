@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115073448) do
+ActiveRecord::Schema.define(version: 20161209081410) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "time"
@@ -113,6 +113,18 @@ ActiveRecord::Schema.define(version: 20161115073448) do
     t.boolean  "accepted"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "latitude"
+    t.string   "longitude"
+    t.integer  "altitude"
+    t.integer  "course"
+    t.integer  "completes_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "locations", ["completes_id"], name: "index_locations_on_completes_id"
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "resource_owner_id", null: false
     t.integer  "application_id",    null: false
@@ -180,9 +192,9 @@ ActiveRecord::Schema.define(version: 20161115073448) do
 
   create_table "user_points", force: :cascade do |t|
     t.integer  "point_type"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "user_points", ["user_id"], name: "index_user_points_on_user_id"
