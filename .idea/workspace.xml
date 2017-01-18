@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/completes_controller.rb" />
     </list>
     <ignored path="challyme_api.iws" />
@@ -388,8 +387,8 @@
       <file leaf-file-name="completes_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="120" column="9" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
+            <state relative-caret-position="615">
+              <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -1294,7 +1293,7 @@
       <workItem from="1479712096013" duration="539000" />
       <workItem from="1479801200921" duration="8849000" />
       <workItem from="1484488017513" duration="7000" />
-      <workItem from="1484726350970" duration="2598000" />
+      <workItem from="1484726350970" duration="2750000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1346,7 +1345,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260763000" />
+    <option name="totallyTimeSpent" value="260915000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1925,8 +1924,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/completes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="120" column="9" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
+        <state relative-caret-position="615">
+          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
           <folding />
         </state>
       </provider>
