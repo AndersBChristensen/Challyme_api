@@ -198,7 +198,7 @@ class Api::UsersController < ApplicationController
 	end
 
 	def otherUsersForActions
-		@invite = Invite.find(id: params[:id])
+		@invite = Invite.find(params[:id])
 		@invites = Invite.where(challenge_id: @invite.challenge_id).not(id: @invite.id)
 
 		render json: @invites.map {|invite| {
