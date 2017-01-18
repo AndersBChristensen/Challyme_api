@@ -198,13 +198,15 @@ class Api::UsersController < ApplicationController
 	end
 
 	def otherUsersForActions
-		@invite = Invite.find(params[:id])
+    @p = params.permit(:invite_id, :task_date_id)
+		@invite = Invite.find(params[:invite_id])
 		@invites = Invite.where(challenge_id: @invite.challenge_id).where("id NOT IN (?)", @invite.id)
 
 		render json: @invites.map {|invite| {
 				user_id: User.find(invite.user_id).id,
 				username: User.find(invite.user_id).username,
-				completed: invite.validateID?(invite.id)
+        profileimage: User.find(invite.user_id).profileimage.url(:medium),
+				completed: invite.validateID?(invite.id, @p[:task_date_id])
 			}
 		}
 

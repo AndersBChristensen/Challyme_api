@@ -35,8 +35,8 @@ class Invite < ActiveRecord::Base
 		status
 	end
 
-	def validateID?(invite_id)
-		if Complete.where(id: invite_id).count > 0
+	def validateID?(invite_id, task_date_id)
+		if Complete.where(id: invite_id, task_date_id: task_date_id).count > 0
 			status = true
 		else
 			status = false
