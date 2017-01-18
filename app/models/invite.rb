@@ -22,7 +22,7 @@ class Invite < ActiveRecord::Base
 	end
 
 	def otherUsers?(invite_id)
-		if Complete.where(invite_id: invite_id).count > 0
+		if Invite.where(invite_id: invite_id).count > 0
 			status = true
 		else
 			status = false
