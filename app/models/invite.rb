@@ -19,5 +19,15 @@ class Invite < ActiveRecord::Base
 				.includes(challenge: {tasks: :actions, tasks: :task_dates})
 				.includes(:user)
 				.includes(:completes)
-  end
+	end
+
+	def otherUsers?(invite_id)
+		if Complete.where(invite_id: invite_id).count > 0
+			status = true
+		else
+			status = false
+		end
+		status
+	end
+	
 end
