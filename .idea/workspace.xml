@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/invite.rb" afterPath="$PROJECT_DIR$/app/models/invite.rb" />
     </list>
     <ignored path="challyme_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -358,8 +357,8 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="208" column="68" selection-start-line="208" selection-start-column="68" selection-end-line="208" selection-end-column="68" />
+            <state relative-caret-position="15">
+              <caret line="1" column="74" selection-start-line="1" selection-start-column="74" selection-end-line="1" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -1264,7 +1263,7 @@
       <workItem from="1479712096013" duration="539000" />
       <workItem from="1479801200921" duration="8849000" />
       <workItem from="1484488017513" duration="7000" />
-      <workItem from="1484726350970" duration="7989000" />
+      <workItem from="1484726350970" duration="8450000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -1316,7 +1315,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266154000" />
+    <option name="totallyTimeSpent" value="266615000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1899,8 +1898,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="208" column="68" selection-start-line="208" selection-start-column="68" selection-end-line="208" selection-end-column="68" />
+        <state relative-caret-position="15">
+          <caret line="1" column="74" selection-start-line="1" selection-start-column="74" selection-end-line="1" selection-end-column="74" />
           <folding />
         </state>
       </provider>
