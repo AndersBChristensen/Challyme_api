@@ -29,5 +29,5 @@ class Invite < ActiveRecord::Base
 		end
 		status
 	end
-	
+
 end
