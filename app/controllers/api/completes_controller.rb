@@ -110,6 +110,7 @@ class Api::CompletesController < ApplicationController
 
                          challengetitle: invite.challenge.title,
                          invite_id: invite.id,
+                         #Should provide the status if there are any other users.
                          otherUsers: Complete.otherUsers(invite.id)
                      })
 
