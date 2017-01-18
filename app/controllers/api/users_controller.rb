@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :otherUsersForActions]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -195,6 +195,19 @@ class Api::UsersController < ApplicationController
 		else
 			render :status => 400, json: []
 		end
+	end
+
+	def otherUsersForActions
+		@invite = Invite.find(id: [:id])
+		@invites = Invite.where(challenge_id: @invite.challenge_id).not(id: @invite.id)
+
+		render json: @invites.map {|invite| {
+				user_id: User.find(invite.user_id).id,
+				username: User.find(invite.user_id).username,
+				completed: Complete.where(invite_id: invite.id), default: false
+			}
+		}
+
 	end
 
 	private

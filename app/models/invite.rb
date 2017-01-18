@@ -22,8 +22,12 @@ class Invite < ActiveRecord::Base
 	end
 
 	def otherUsers?(invite_id)
-		invite = Invite.find(invite_id)
-		if Invite.where(challenge_id: invite.challenge_id).count > 1
+
+		# Find the users invite to find the challenge_id.
+		@invite = Invite.find(invite_id)
+
+		#Use the challenge_id from the users invite to find out if there are other invites with the same challenge id.
+		if Invite.where(challenge_id: @invite.challenge_id).count > 1
 			status = true
 		else
 			status = false

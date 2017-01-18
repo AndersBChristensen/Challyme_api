@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     get 'challengeprocess' => 'completes#challengeprocess'
     get 'search_users/:key' => 'users#search_users'
     get 'user_stats/:id' => 'users#user_stats'
+    get 'otherUsersForActions/:id' => 'users#otherUsersForActions'
     get 'news/:id' => 'users#news'
     get 'get_activities' => 'activities#get_activities'
     post 'upload_complete_image/:id' => 'completes#upload_complete_image'
