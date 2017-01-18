@@ -204,7 +204,7 @@ class Api::UsersController < ApplicationController
 		render json: @invites.map {|invite| {
 				user_id: User.find(invite.user_id).id,
 				username: User.find(invite.user_id).username,
-				completed: Complete.where(invite_id: invite.id), default: false
+				completed: invite.validateID?(invite.id)
 			}
 		}
 

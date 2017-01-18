@@ -35,4 +35,13 @@ class Invite < ActiveRecord::Base
 		status
 	end
 
+	def validateID?(invite_id)
+		if Invite.where(id: invite_id)
+			status = true
+		else
+			status = false
+		end
+		status
+	end
+
 end
