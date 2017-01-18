@@ -206,7 +206,8 @@ class Api::UsersController < ApplicationController
 				user_id: User.find(invite.user_id).id,
 				username: User.find(invite.user_id).username,
         profileimage: User.find(invite.user_id).profileimage.url(:medium),
-				completed: invite.validateID?(invite.id, @p[:task_date_id])
+				completed: invite.validateID?(invite.id, @p[:task_date_id]),
+        completed_result: invite.completionResult?(invite.id, @p[:task_date_id])
 			}
 		}
 

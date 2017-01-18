@@ -44,4 +44,21 @@ class Invite < ActiveRecord::Base
 		status
 	end
 
+	def completionResult?(invite_id, task_date_id)
+		if Complete.where(id: invite_id, task_date_id: task_date_id).count > 0
+
+			if Complete.where(id: invite_id, task_date_id: task_date_id).first!.distance != nil && Complete.where(id: invite_id, task_date_id: task_date_id).first!.time == nil
+				  status = Complete.where(id: invite_id, task_date_id: task_date_id).first!.distance
+			end
+
+			if Complete.where(id: invite_id, task_date_id: task_date_id).first!.time != nil  && Complete.where(id: invite_id, task_date_id: task_date_id).first!.distance == nil
+					 status = Complete.where(id: invite_id, task_date_id: task_date_id).first!.time
+			end
+
+		else
+			status = 0
+		end
+		status
+	end
+
 end
