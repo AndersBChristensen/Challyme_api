@@ -111,7 +111,6 @@ class Api::CompletesController < ApplicationController
                          challengetitle: invite.challenge.title,
                          invite_id: invite.id,
                          otherUsers: Complete.otherUsers(invite.id)
-
                      })
 
           end
