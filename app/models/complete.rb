@@ -18,7 +18,7 @@ class Complete < ActiveRecord::Base
     }
   end
 
-  def otherUsers(invite_id)
+  def otherUsers?(invite_id)
     if Complete.where(invite_id: invite_id).count > 0
       status = true
     else
