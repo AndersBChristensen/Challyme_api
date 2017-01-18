@@ -36,7 +36,7 @@ class Invite < ActiveRecord::Base
 	end
 
 	def validateID?(invite_id)
-		if Complete.where(id: invite_id)
+		if Complete.where(id: invite_id).count > 0
 			status = true
 		else
 			status = false
