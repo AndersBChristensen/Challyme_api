@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landing/hello'
+
   devise_for :users
   use_doorkeeper
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,6 +63,10 @@ Rails.application.routes.draw do
   resources :home do
     post "add_signup" => "home#add_signup"
   end
+
+  resources :landing
+
+  resources :landing_page
 
   namespace :api do
 
