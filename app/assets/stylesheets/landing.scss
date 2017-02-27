@@ -62,3 +62,32 @@ body {
     opacity: 1.0;
   }
 }
+
+#presignup_email {
+  font-size: 24px;
+  background-color: transparent;
+  align-content: center;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  text-align: center;
+  border-bottom: 1px solid white;
+  height: 34px;
+  color: white;
+}
+
+#form{
+  text-align: center;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+#button{
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(255, 255, 255, 1.0);
+  width: 300px;
+  height: 40px;
+  margin-top: 20px;
+}

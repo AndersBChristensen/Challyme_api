@@ -1,0 +1,10 @@
+
+= simple_form_for [@pre], url: url_for('landing') do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, label: false, placeholder: 'Indtast e-mail her...'
+
+  .form-actions
+    = f.button :submit, class: "btn btn-primary", value: "Signup"
+
