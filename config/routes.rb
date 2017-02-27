@@ -58,13 +58,15 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root "landing#new"
+  root "landing#index"
 
   resources :home do
     post "add_signup" => "home#add_signup"
   end
 
-  resources :landing
+  resources :landing do
+    post "add_signup" => "home#add_signup"
+  end
 
   resources :landing_page
 
