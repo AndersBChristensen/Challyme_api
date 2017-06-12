@@ -68,10 +68,9 @@ Rails.application.routes.draw do
     post "add_signup" => "landing#add_signup"
   end
 
-  resources :sessions do
-    post "/signin", to: "sessions#create", as: "signin"
-  end
+  resources :sessions
 
+  post '/login', to: 'sessions#create', as: :login
   delete '/logout', to: 'sessions#destroy', as: :logout
 
   #resources :landing_page
