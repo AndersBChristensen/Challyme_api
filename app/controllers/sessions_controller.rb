@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
-  before_action :doorkeeper_authorize!, except: [:create, :destroy, :new]
   skip_before_action :verify_authenticity_token
+
 
   def new
   end
