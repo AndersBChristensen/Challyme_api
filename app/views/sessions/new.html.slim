@@ -15,13 +15,13 @@
         br
 
         div#form
-          = simple_form_for sessions_path, url: url_for('create') do |f|
+          = simple_form_for sessions_path, method: :post do |f|
             = f.error_notification
 
             .form-inputs
-              = f.input :email, label: 'Email', placeholder: 'Type your email here...'
+              = f.input :username, label: 'Username', placeholder: 'Type your email here...'
             .form-inputs
-              = f.input :password_field, label: 'Password', placeholder: 'Type your password here...'
+              = f.input :password, label: 'Password', placeholder: 'Type your password here...'
 
             .form-actions
               = f.button :submit, id: "button", class: "btn btn-primary", value: "Login"
