@@ -19,9 +19,9 @@
             = f.error_notification
 
             .form-inputs
-              = f.input :username, label: 'Username', placeholder: 'Type your email here...'
+              = f.input :email_field, label: 'Username', placeholder: 'Type your email here...'
             .form-inputs
-              = f.input :password, label: 'Password', placeholder: 'Type your password here...'
+              = f.input :password_field, label: 'Password', placeholder: 'Type your password here...'
 
             .form-actions
               = f.button :submit, id: "button", class: "btn btn-primary", value: "Login"
