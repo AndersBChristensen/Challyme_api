@@ -15,7 +15,7 @@
         br
 
         div#form
-          = simple_form_for :login_path do |f|
+          = simple_form_for :sessions_path, method: "POST",:url => { :action => :create } do |f|
             = f.error_notification
 
             .form-inputs
