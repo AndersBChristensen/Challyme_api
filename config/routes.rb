@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
+
   delete '/logout', to: 'sessions#destroy', as: :logout
 
   #resources :landing_page
