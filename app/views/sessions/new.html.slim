@@ -22,11 +22,12 @@
         br
 
         div#form
-          = simple_form_for sessions_path, method: :post do
+          = simple_form_for sessions_path, method: :post do |f|
             = f.error_notification
 
             .form-inputs
               = f.input :email, label: 'Email', placeholder: 'Type your email here...'
+            .form-inputs
               = f.input :password_field, label: 'Password', placeholder: 'Type your password here...'
 
             .form-actions
