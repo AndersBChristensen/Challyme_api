@@ -1,0 +1,33 @@
+
+.section#cover
+  div#coverGradient
+    div#nav
+
+
+
+    .vertical-center
+      .container.col-md-8.col-md-offset-2
+        br
+        br
+        div#image
+          img src="CM-logo.png" height="30%" width="30%"
+        br
+        div#title
+          p Challenge everyone, everywhere
+        br
+        div#desc
+          p Aim high and reach your goals. We provide all the tools you need to create amazing challenges.
+
+        br
+        br
+
+        div#form
+          = simple_form_for sessions_path, method: :post do
+            = f.error_notification
+
+            .form-inputs
+              = f.input :email, label: 'Email', placeholder: 'Type your email here...'
+              = f.input :password_field, label: 'Password', placeholder: 'Type your password here...'
+
+            .form-actions
+              = f.button :submit, id: "button", class: "btn btn-primary", value: "Login"
