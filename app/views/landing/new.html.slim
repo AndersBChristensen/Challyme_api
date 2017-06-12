@@ -3,6 +3,8 @@
   div#coverGradient
     div#nav
 
+
+
     .vertical-center
       .container.col-md-8.col-md-offset-2
         br
@@ -16,5 +18,15 @@
         div#desc
           p Aim high and reach your goals. We provide all the tools you need to create amazing challenges.
 
-        = render 'form'
+        br
+        br
 
+        div#form
+          = simple_form_for [@pre], url: url_for('landing') do |f|
+            = f.error_notification
+
+            .form-inputs
+              = f.input :email, label: false, placeholder: 'Type your email and we will let you know when we launch...'
+
+            .form-actions
+              = f.button :submit, id: "button", class: "btn btn-primary", value: "Signup"

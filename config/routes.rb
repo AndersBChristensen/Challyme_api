@@ -58,15 +58,17 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root "home#new"
+  root "landing#new"
 
   resources :home do
     post "add_signup" => "home#add_signup"
   end
 
-  resources :landing
+  resources :landing do
+    post "add_signup" => "landing#add_signup"
+  end
 
-  resources :landing_page
+  #resources :landing_page
 
   namespace :api do
 
