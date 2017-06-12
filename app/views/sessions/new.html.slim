@@ -15,7 +15,7 @@
         br
 
         div#form
-          = simple_form_for sessions_path, method: :post do |f|
+          = simple_form_for :session, method: :post do |f|
             = f.error_notification
 
             .form-inputs
