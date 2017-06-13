@@ -8,7 +8,7 @@
         br
         br
         div#image
-          img src="CM-logo.png" height="30%" width="30%"
+          img src="/CM-logo.png" height="30%" width="30%"
         br
         div#title
           p Login to visit your page.
@@ -19,7 +19,7 @@
             = f.error_notification
 
             .form-inputs
-              = f.input :username, label: 'Username', placeholder: 'Type your email here...'
+              = f.input :email, label: 'Email', placeholder: 'Type your email here...'
             .form-inputs
               = f.input :password, label: 'Password', placeholder: 'Type your password here...'
 
