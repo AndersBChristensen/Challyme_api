@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:warning] = "Du har indtastet den forkerte email eller password."
-      redirect_to :new
+      redirect_to :new_sessions_url
     end
   end
 
