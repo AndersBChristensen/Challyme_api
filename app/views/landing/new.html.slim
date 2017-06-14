@@ -10,7 +10,7 @@
 
           nav class="menu"
             - if current_user
-              a href="sessions/new" Log ud
+              a href="#" Velkommen tilbage =current_user.first_name
             - else
               a href="sessions/new" Log ind
             end
