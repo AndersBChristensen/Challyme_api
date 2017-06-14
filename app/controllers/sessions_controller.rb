@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if @user && @user.valid_password?(params[:sessions_path][:password])
       session[:user_id] = @user.id
       flash[:success] = "Velkommen tilbage!"
-      redirect_to root_path
+      redirect_to "/backend/index"
     else
       flash[:warning] = "Du har indtastet den forkerte email eller password."
       redirect_to "/sessions/new"
