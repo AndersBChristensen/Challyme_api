@@ -12,7 +12,6 @@
 //
 //= require turbolinks
 //= require twitter/bootstrap
-//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap/transition
@@ -20,3 +19,5 @@
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/collapse
+//= require bootstrap-sprockets
+//= require_tree .
