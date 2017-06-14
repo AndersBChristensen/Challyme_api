@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/landing.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/landing.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/landing.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/landing.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing/new.html.slim" afterPath="$PROJECT_DIR$/app/views/landing/new.html.slim" />
     </list>
     <ignored path="challyme_api.iws" />
@@ -761,7 +755,7 @@
       <workItem from="1497287912042" duration="6181000" />
       <workItem from="1497373402587" duration="158000" />
       <workItem from="1497449366305" duration="3340000" />
-      <workItem from="1497453702104" duration="2974000" />
+      <workItem from="1497453702104" duration="3222000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -781,7 +775,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291954000" />
+    <option name="totallyTimeSpent" value="292202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
