@@ -13,6 +13,7 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require jquery
+//= require jQuery
 //= require jquery_ujs
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert
