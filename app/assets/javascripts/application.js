@@ -21,3 +21,4 @@
 //= require twitter/bootstrap/collapse
 //= require bootstrap-sprockets
 //= require_tree .
+//= require bootstrap
