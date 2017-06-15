@@ -9,12 +9,13 @@
 
           nav class="menu"
             - if current_user
-              a href="#" Velkommen tilbage #{current_user.first_name}
+              a href="landing/new" Log ud
             - else
               a href="sessions/new" Log ind
             end
-
-        .vertical-center
-          .container.col-md-8.col-md-offset-2
-            h1 #{User.count}
-            h3 Registrerede brugere
+        - if current_user
+          .vertical-center
+            .container.col-md-8.col-md-offset-2
+              h1 #{User.count}
+              h3 Registrerede brugere
+        end
