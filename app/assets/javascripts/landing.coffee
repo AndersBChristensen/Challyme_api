@@ -3,14 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  (($) ->
-    $('#header__icon').click (e) ->
-      e.preventDefault()
-      $('body').toggleClass 'with--sidebar'
-      return
-    $('#site-cache').click (e) ->
-      $('body').removeClass 'with--sidebar'
-      return
+  $('#header__icon').click (e) ->
+    $('body').toggleClass 'with--sidebar'
+    console.debug 'fes'
+    e.preventDefault()
     return
-  ) jQuery
+  $('#site-cache').click (e) ->
+    console.debug(e.target)
+    #$('body').removeClass 'with--sidebar'
+    return
   return
