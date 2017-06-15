@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d296007-bf66-4add-8083-ac9cbc6db668" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/index.html.slim" afterPath="$PROJECT_DIR$/app/views/backend/index.html.slim" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing/new.html.slim" afterPath="$PROJECT_DIR$/app/views/landing/new.html.slim" />
     </list>
     <ignored path="challyme_api.iws" />
@@ -370,21 +371,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.slim" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/landing/new.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="660">
+              <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.slim" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.slim" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/backend/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="67" />
+            <state relative-caret-position="450">
+              <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -473,8 +474,8 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/backend.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/backend/index.html.slim" />
         <option value="$PROJECT_DIR$/app/views/landing/new.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/backend/index.html.slim" />
       </list>
     </option>
   </component>
@@ -827,7 +828,7 @@
       <workItem from="1497373402587" duration="158000" />
       <workItem from="1497449366305" duration="3340000" />
       <workItem from="1497453702104" duration="5458000" />
-      <workItem from="1497517996563" duration="752000" />
+      <workItem from="1497517996563" duration="972000" />
     </task>
     <task id="LOCAL-00001" summary="Fix deploy environments">
       <created>1473068949807</created>
@@ -847,10 +848,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295190000" />
+    <option name="totallyTimeSpent" value="295410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2560" y="23" width="2560" height="1337" extended-state="0" />
+    <frame x="2560" y="23" width="2560" height="1337" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2671875" sideWeight="0.49566296" order="0" side_tool="false" content_ui="combo" />
@@ -1257,18 +1258,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/backend/index.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/landing/new.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="67" />
+        <state relative-caret-position="660">
+          <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/landing/new.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/backend/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state relative-caret-position="450">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding />
         </state>
       </provider>
