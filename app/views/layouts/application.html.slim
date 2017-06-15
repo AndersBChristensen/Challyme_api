@@ -11,5 +11,4 @@ html
       = bootstrap_flash
       = yield
 
-    = javascript_include_tag 'application'
-    = yield(:page_javascript) if content_for?(:page_javascript)
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
