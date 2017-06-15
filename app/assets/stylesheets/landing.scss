@@ -39,7 +39,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-
 }
 
 #image{
@@ -110,6 +109,29 @@ a {
   color: inherit;
 }
 
+ul {
+  padding-top: 20px;
+  padding-right: 25px;
+}
+
+li{
+  list-style-type: none;
+  line-height: 20px;
+}
+
+#bold-a{
+  font-weight: bold;
+  text-decoration: none;
+  background-color:transparent;
+  :hover{
+    background-color:transparent;
+  }
+}
+
+#light-a{
+  font-weight: lighter;
+}
+
 .container {
   @include clearfix;
   margin-top: 80px;
@@ -150,7 +172,7 @@ a {
   }
 
   a:hover {
-    color: #c5cae9;
+    color: white;
   }
 }
 
@@ -163,6 +185,11 @@ a {
 
   .site-container {
     overflow: hidden;
+  }
+
+  .container {
+    @include clearfix;
+    margin-top: 0px;
   }
 
   .site-pusher {

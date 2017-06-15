@@ -9,15 +9,39 @@
 
           nav class="menu"
             - if current_user
-              a href="landing/new" Log ud
+              ul
+                li
+                  a id='bold-a' #{current_user.first_name} #{current_user.last_name}
+                li
+                  a id='light-a' href="/" Log ud
             - else
               a href="sessions/new" Log ind
             end
         - if current_user
           .vertical-center
             .container.col-md-8.col-md-offset-2
-              h1 #{User.count}
-              h3 Registrerede brugere
+
+              h1 class='dashboard-title' Betjeningspanelet
+              h3 class='dashboard-description' Velkommen til betjeningspanelet hvor du kan finde alt den information du skal bruge for at lære mere om Challyme.
+
+              .container.col-md-4
+                ul
+                  li
+                    h1 class='dashboard-h1' Registrerede brugere
+                  li
+                    h3 class='dashboard-h3' #{User.count}
+              .container.col-md-4
+                ul
+                  li
+                    h1 class='dashboard-h1' Antal udfordringer
+                  li
+                    h3 class='dashboard-h3' #{Invite.count}
+              .container.col-md-4
+                ul
+                  li
+                    h1 class='dashboard-h1' Antal opgaver i udfordring
+                  li
+                    h3 class='dashboard-h3' #{Task.count}
         - else
           .vertical-center
             .container.col-md-8.col-md-offset-2

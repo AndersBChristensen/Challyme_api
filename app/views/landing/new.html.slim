@@ -9,7 +9,11 @@
 
           nav class="menu"
             - if current_user
-              a href="backend" Velkommen tilbage #{current_user.first_name}
+              ul
+                li
+                  a id='bold-a' #{current_user.first_name} #{current_user.last_name}
+                li
+                  a id='light-a' href="/backend" Gå til backend
             - else
               a href="sessions/new" Log ind
             end
