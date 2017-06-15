@@ -1,0 +1,20 @@
+.section#cover
+  div#coverGradient
+    div class="site-container"
+      div class="site-pusher"
+        header class="header"
+
+          a href="#" class="header__icon" id="header__icon"
+          a class="header__logo" Challyme
+
+          nav class="menu"
+            - if current_user
+              a href="#" Velkommen tilbage #{current_user.first_name}
+            - else
+              a href="sessions/new" Log ind
+            end
+
+        .vertical-center
+          .container.col-md-8.col-md-offset-2
+            h1 #{User.count}
+            h3 Registrerede brugere

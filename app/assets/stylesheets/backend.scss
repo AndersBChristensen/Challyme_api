@@ -1,3 +1,6 @@
+// Place all the styles related to the Backend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 // Place all the styles related to the Landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -66,6 +69,9 @@ body {
   :-ms-input-placeholder      { @content;}
 }
 
+h3 {
+  text-align: center;
+}
 
 #presignup_email {
   font-size: 24px;

@@ -1,32 +1,42 @@
 
 .section#cover
   div#coverGradient
-    div#nav
+    div class="site-container"
+      div class="site-pusher"
+        header class="header"
 
+          a href="#" class="header__icon" id="header__icon"
+          a class="header__logo" Challyme
 
+          nav class="menu"
+            - if current_user
+              a href="#" Velkommen tilbage #{current_user.first_name}
+            - else
+              a href="sessions/new" Log ind
+            end
 
-    .vertical-center
-      .container.col-md-8.col-md-offset-2
-        br
-        br
-        div#image
-          img src="CM-logo.png" height="30%" width="30%"
-        br
-        div#title
-          p Challenge everyone, everywhere
-        br
-        div#desc
-          p Aim high and reach your goals. We provide all the tools you need to create amazing challenges.
+        .vertical-center
+          .container.col-md-8.col-md-offset-2
+            br
+            br
+            div#image
+              img src="CM-logo.png" height="30%" width="30%"
+            br
+            div#title
+              p Challenge everyone, everywhere
+            br
+            div#desc
+              p Aim high and reach your goals. We provide all the tools you need to create amazing challenges.
 
-        br
-        br
+            br
+            br
 
-        div#form
-          = simple_form_for [@pre], url: url_for('landing') do |f|
-            = f.error_notification
+            div#form
+              = simple_form_for [@pre], url: url_for('landing') do |f|
+                = f.error_notification
 
-            .form-inputs
-              = f.input :email, label: false, placeholder: 'Type your email and we will let you know when we launch...'
+                .form-inputs
+                  = f.input :email, label: false, placeholder: 'Type your email and we will let you know when we launch...'
 
-            .form-actions
-              = f.button :submit, id: "button", class: "btn btn-primary", value: "Signup"
+                .form-actions
+                  = f.button :submit, id: "button", class: "btn btn-primary", value: "Signup"
