@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
 
   resources :backend
+  delete 'backend/deleteSession/' => 'backend#deleteSession'
 
   #resources :landing_page
 

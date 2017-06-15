@@ -111,6 +111,16 @@ h3 {
   margin-top: 20px;
 }
 
+#logout-button{
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(255, 255, 255, 1.0);
+  width: 200px;
+  height: 35px;
+  float: right;
+  margin-top: 5px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -120,8 +130,8 @@ a:hover{
   background-color: transparent;
 }
 
-ul {
-  padding-top: 20px;
+.backend-ul {
+  padding-top: 8px;
   padding-right: 25px;
 }
 
@@ -130,7 +140,6 @@ li{
   line-height: 20px;
 
   a{
-
     text-decoration: none;
     color: inherit;
     font-weight: lighter;
@@ -296,7 +305,7 @@ li{
       height: 40px;
 
       text-align: center;
-      line-height: 40px;
+      //line-height: 40px;
 
       border-bottom: 1px solid #263442;
     }

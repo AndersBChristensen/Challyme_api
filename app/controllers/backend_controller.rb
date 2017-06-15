@@ -14,9 +14,18 @@ class BackendController < ApplicationController
   def create
   end
 
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path
+  end
+
+  def deleteSession
+    session.delete(:user_id)
+    redirect_to root_path
+  end
+
   def numberOfUsers
     @users = User.count
-
   end
 
 end

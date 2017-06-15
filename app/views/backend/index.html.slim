@@ -9,11 +9,14 @@
 
           nav class="menu"
             - if current_user
-              ul
+              ul class='backend-ul'
                 li
                   a id='bold-a' #{current_user.first_name} #{current_user.last_name}
                 li
-                  a id='light-a' href="/" Log ud
+                  = simple_form_for :backend_path, method: "Delete",:url => { :action => :deleteSession } do |f|
+                    = f.error_notification
+                    .form-actions
+                      = f.button :submit, id: "logout-button", class: "btn btn-primary", value: "Log ud"
             - else
               a href="sessions/new" Log ind
             end
@@ -21,7 +24,7 @@
           .vertical-center
             .container.col-md-8.col-md-offset-2
 
-              h1 class='dashboard-title' Betjeningspanelet
+              h1 class='dashboard-title' Betjeningspanel
               h3 class='dashboard-description' Velkommen til betjeningspanelet hvor du kan finde alt den information du skal bruge for at lære mere om Challyme.
 
               .container.col-md-4
@@ -39,7 +42,7 @@
               .container.col-md-4
                 ul
                   li
-                    h1 class='dashboard-h1' Antal opgaver i udfordring
+                    h1 class='dashboard-h1' Antal opgaver i udfordringer
                   li
                     h3 class='dashboard-h3' #{Task.count}
         - else
