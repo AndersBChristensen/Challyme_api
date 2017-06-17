@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path
+  end
+
   def deleteSession
     session.delete(:user_id)
     redirect_to root_path
