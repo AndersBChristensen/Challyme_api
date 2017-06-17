@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:sessions_path][:email])
     if @user && @user.valid_password?(params[:sessions_path][:password])
       session[:user_id] = @user.id
-      flash[:success] = "Velkommen tilbage!"
+      #flash[:success] = "Velkommen tilbage!"
       redirect_to "/backend"
     else
       flash[:warning] = "Du har indtastet den forkerte email eller password."
