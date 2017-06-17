@@ -7,13 +7,9 @@ class ApplicationController < ActionController::Base
     { json: { error: "Not authorized" } }
   end
 
-  private
+  def show
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-
-  helper_method :current_user
 
   def destroy
     session.delete(:user_id)
@@ -24,5 +20,13 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     redirect_to root_path
   end
+
+  private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  helper_method :current_user
 
 end
