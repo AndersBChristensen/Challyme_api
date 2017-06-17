@@ -1,28 +1,6 @@
-.section#cover
-  div#coverGradient
-    div class="site-container"
-      div class="site-pusher"
-        header class="header"
 
-          a href="#" class="header__icon" id="header__icon"
-          a class="header__logo" Challyme
-
-          nav class="menu"
-            - if current_user
-              ul class='backend-ul'
-                li
-                  a id='bold-a' #{current_user.first_name} #{current_user.last_name}
-                li
-                  = simple_form_for :backend_path, method: "Delete",:url => { :action => :deleteSession } do |f|
-                    = f.error_notification
-                    .form-actions
-                      = f.button :submit, id: "logout-button", class: "btn btn-primary", value: "Log ud"
-            - else
-              a href="sessions/new" Log ind
-            end
         - if current_user
-          .vertical-center
-            .container.col-md-8.col-md-offset-2
+            .container.col-md-10.col-md-push-2
 
               h1 class='dashboard-title' Betjeningspanel
               h3 class='dashboard-description' Velkommen til betjeningspanelet hvor du kan finde alt den information du skal bruge for at lære mere om Challyme.
@@ -45,15 +23,23 @@
                     h1 class='dashboard-h1' Antal opgaver i udfordringer
                   li
                     h3 class='dashboard-h3' #{Task.count}
+            .container.col-md-2.col-md-pull-10 id='sidebar-background'
+              ul id='sidebar' class="nav nav-stacked affix"
+                li class='sidebar-li'
+                  a class='selected' Betjeningspanel
+                li class='sidebar-li'
+                  a Data håndtering
+                li class='sidebar-li'
+                  a Statistikker
+                li class='sidebar-li'
+                  a Presse
+                li class='sidebar-li'
+                  a Support
+                li class='sidebar-li'
+                  a Pushbeskeder
         - else
           .vertical-center
             .container.col-md-8.col-md-offset-2
               h1 Du har ikke adgang til denne side.
         end
 
-    /!
-      | Javascripts
-      | \==================================================
-    /! Placed at the end of the document so the pages load faster
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = yield(:page_javascript) if content_for?(:page_javascript)

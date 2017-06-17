@@ -21,6 +21,27 @@ body {
   padding: 0;
   height: 100%;
 }
+
+#sidebar{
+  background-color: #263442;
+  height: 100%;
+  width: inherit;
+  padding-right: 0px;
+  padding-top: 0px;
+}
+
+#sidebar-background{
+  padding-left: 0px;
+}
+
+.selected{
+  background-color: rgba(244,244,244,0.5);
+}
+
+.sidebar-li{
+  border-bottom: 1px solid rgba(98,116,134,0.5) !important;
+}
+
 #title{
   font-weight: 600;
   font-size: 48px;
@@ -36,8 +57,9 @@ body {
 }
 
 #cover{
+  position: fixed;
+  top: 0;
   background-image: url("/runners.jpg");
-  position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -135,6 +157,10 @@ a:hover{
   padding-right: 25px;
 }
 
+.button-li{
+  margin-right: 10px;
+}
+
 li{
   list-style-type: none;
   line-height: 20px;
@@ -178,7 +204,8 @@ li{
 .dashboard-h1{
   font-weight: bold;
   font-size: 36px;
-  min-height: 72px;
+  line-height: 36px;
+  min-height: 108px;
   text-align: center;
 }
 

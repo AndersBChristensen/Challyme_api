@@ -1,22 +1,3 @@
-.section#cover
-  div#coverGradient
-    div class="site-container"
-      div class="site-pusher"
-        header class="header"
-
-          a href="/" class="header__icon" id="header__icon"
-          a class="header__logo" Challyme
-
-          nav class="menu"
-            - if current_user
-              ul
-                li
-                  a id='bold-a' #{current_user.first_name} #{current_user.last_name}
-                li
-                  a id='light-a' href="/backend" Gå til backend
-            - else
-              a href="sessions/new" Log ind
-            end
 
         .vertical-center
           .container.col-md-8.col-md-offset-2
@@ -43,9 +24,3 @@
 
                 .form-actions
                   = f.button :submit, id: "button", class: "btn btn-primary", value: "Signup"
-
-    /!
-      | Javascripts
-      | \==================================================
-    /! Placed at the end of the document so the pages load faster
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true

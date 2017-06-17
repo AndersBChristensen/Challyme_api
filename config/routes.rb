@@ -66,13 +66,16 @@ Rails.application.routes.draw do
 
   resources :landing do
     post "add_signup" => "landing#add_signup"
+    delete "deleteSession" => "landing#deleteSession"
   end
 
   resources :sessions, only: [:new, :create]
   delete '/logout', to: 'sessions#destroy', as: :logout
 
+  resources :application
   resources :backend
   delete 'backend/deleteSession/' => 'backend#deleteSession'
+  delete 'application/deleteSession/' => 'application#deleteSession'
 
   #resources :landing_page
 

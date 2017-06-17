@@ -4,8 +4,37 @@ html
     title Challyme
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  body.HolyGrail
+  .section#cover
+    div#coverGradient
+      div class="site-container"
+        div class="site-pusher"
+          header class="header"
 
-    main.HolyGrail-content
-      = bootstrap_flash
-      = yield
+            a href="#" class="header__icon" id="header__icon"
+            a class="header__logo" Challyme
+
+            nav class="menu"
+              - if current_user
+                ul class='backend-ul'
+                  li
+                    a id='bold-a' #{current_user.first_name} #{current_user.last_name}
+                  - if current_page?(url_for(:controller => :backend))
+                    li class='button-li'
+                      = simple_form_for :application, method: "Delete", :url => {:action => :deleteSession, :controller => :application} do |f|
+                        = f.error_notification
+                        .form-actions
+                          = f.button :submit, id: "logout-button", class: "btn btn-primary", value: "Log ud"
+                  - else
+                    li style='margin-top: 10px;'
+                      a href='/backend' Gå til backenden
+              - else
+                a href="sessions/new" Log ind
+              end
+
+          body.HolyGrail
+
+            main.HolyGrail-content
+              = bootstrap_flash
+              = yield
+              = javascript_include_tag 'application', 'data-turbolinks-track' => true
+              = yield(:page_javascript) if content_for?(:page_javascript)
