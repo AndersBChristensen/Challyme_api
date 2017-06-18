@@ -148,6 +148,7 @@ li{
   left: 0;
   right: 0;
   height: 80px;
+  text-decoration: none;
 
   line-height: 80px;
   color: #fff;
@@ -162,10 +163,17 @@ li{
   font-weight: bold;
   padding: 0 25px;
   float: left;
+
+  text-decoration: none;
+  background-color:transparent;
+  :hover{
+    background-color:transparent;
+  }
 }
 
 /* MENU */
 .menu {
+  height: 80px;
   float: right;
 
   a {
