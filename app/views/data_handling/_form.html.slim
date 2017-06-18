@@ -1,0 +1,12 @@
+= simple_form_for(user_session_path) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :username, label: "Brugernavn"
+    = f.input :first_name, label: "Fornavn"
+    = f.input :last_name, label: "Efternavn"
+    = f.input :city, label: "By"
+    = f.input :email, label: "E-mail"
+
+  .form-actions
+    = f.button :submit, class: "btn btn-primary", value: 'Opdater kunde'

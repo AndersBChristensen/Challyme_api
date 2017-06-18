@@ -1,0 +1,9 @@
+.vertical-center
+  .container.col-md-6.col-md-offset-3
+    h1
+      |Vis kunder
+      - if @current_user
+        //small = @users.firstname
+    br
+    br
+    == render 'form'
