@@ -1,25 +1,28 @@
 
 - if current_user
   .container.col-md-10.col-md-push-2
-
     br
-
-    input type="text" class="search form-control" placeholder="Hvad søger du?"
+      input type="text" class="search form-control" placeholder="Hvad søger du?"
       br
       table class="table table-hover results" data-sort-name="username" data-sort-order="desc"
-
         thead
           tr
             th data-field="username" data-sortable="true" Brugernavn
             th data-field="name" data-sortable="true" Navn
-          /th data-field="options" data-sortable="true" Ændre
-          /th data-field="options" data-sortable="true" Slet
+            th data-field="options" data-sortable="true" Ændre
+            th data-field="options" data-sortable="true" Slet
 
           tbody
             - @users.each do |user|
-                tr
-                  td.username = user.username
-                  td.name = user.first_name + ' ' + user.last_name
+              tr
+                td.username = user.username
+                td.name = user.first_name + ' ' + user.last_name
+                td
+                  div class="btn-group"
+                    = link_to 'Ændre', edit_data_handling_path(user.id), :class => "btn btn-primary align-center"
+                td
+                  div class="btn-group"
+                    = link_to 'Slet', data_handling_path(user), data: {:confirm => 'Er du sikker?'}, :method => :delete, :class => "btn btn-danger align-center"
 
   .container.col-md-2.col-md-pull-10 id='sidebar-background'
     ul id='sidebar' class="nav nav-stacked affix"

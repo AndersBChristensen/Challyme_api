@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require twitter/bootstrap
 //= require twitter/bootstrap/transition
@@ -23,7 +24,6 @@
 //= require autocomplete-rails
 //= require_tree .
 //= require bootstrap
-
 
 $(document).ready(function() {
     $(".search").keyup(function () {

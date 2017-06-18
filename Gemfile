@@ -83,11 +83,14 @@ gem 'lazy_high_charts'
 gem "cocoon"
 
 gem 'mandrill_mailer'
+gem 'autoprefixer-rails'
 
 gem "rest-client"
 gem 'vpim', '~> 13.11.11'
 gem 'rails4-autocomplete'
 
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+gem 'bootstrap-table-rails'
 
 gem "paperclip", '~> 5.0.0'
