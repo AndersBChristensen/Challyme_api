@@ -2,7 +2,7 @@ doctype html
 html
   head
     title Challyme
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   .section#cover
     div#coverGradient
@@ -35,6 +35,8 @@ html
 
             main.HolyGrail-content
               = bootstrap_flash
+
               = yield
+
               = javascript_include_tag 'application', 'data-turbolinks-track' => true
               = yield(:page_javascript) if content_for?(:page_javascript)

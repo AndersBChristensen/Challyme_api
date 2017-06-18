@@ -7,3 +7,42 @@
  *= require_tree .
  *= require_self
  */
+
+.btn.btn-primary.align-center{
+  background-color: rgba(121, 142, 144, 1);
+  color: white;
+  border-color: rgba(121, 142, 144, 0.8);
+  width: calc(100% + 20px);
+  padding-top: 9px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.btn.btn-danger.align-center{
+  background-color: rgba(162, 65, 77, 1);
+  color: white;
+  border-color: rgba(162, 65, 77, 0.8);
+  width: calc(100% + 20px);
+  padding-top: 9px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.name{
+  vertical-align: inherit;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: inherit;
+  border-top: 1px solid #ddd;
+  .username{
+    font-weight: bold;
+  }
+}
