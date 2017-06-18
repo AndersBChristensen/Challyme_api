@@ -18,7 +18,7 @@ html
                 ul class='backend-ul'
                   li
                     a id='bold-a' #{current_user.first_name} #{current_user.last_name}
-                  - if current_page?(url_for(:controller => :backend))
+                  - if current_page?(url_for(:controller => :backend)) || current_page?(url_for(:controller => :data_handling))
                     li class='button-li'
                       = simple_form_for :application, method: "Delete", :url => {:action => :deleteSession, :controller => :application} do |f|
                         = f.error_notification
