@@ -1,0 +1,43 @@
+
+- if current_user
+  .container.col-md-10.col-md-push-2
+
+    br
+
+    input type="text" class="search form-control" placeholder="Hvad søger du?"
+      br
+      table class="table table-hover results" data-sort-name="username" data-sort-order="desc"
+
+        thead
+          tr
+            th data-field="username" data-sortable="true" Brugernavn
+            th data-field="name" data-sortable="true" Navn
+          /th data-field="options" data-sortable="true" Ændre
+          /th data-field="options" data-sortable="true" Slet
+
+          tbody
+            - @users.each do |user|
+                tr
+                  td.username = user.username
+                  td.name = user.first_name + ' ' + user.last_name
+
+  .container.col-md-2.col-md-pull-10 id='sidebar-background'
+    ul id='sidebar' class="nav nav-stacked affix"
+      li class='sidebar-li'
+        a href='/backend' Betjeningspanel
+      li class='selected' class='sidebar-li'
+        a href='/data_handling' Data håndtering
+      li class='sidebar-li'
+        a Statistikker
+      li class='sidebar-li'
+        a Presse
+      li class='sidebar-li'
+        a Support
+      li class='sidebar-li'
+        a Pushbeskeder
+- else
+  .vertical-center
+    .container.col-md-8.col-md-offset-2
+      h1 Du har ikke adgang til denne side.
+end
+
