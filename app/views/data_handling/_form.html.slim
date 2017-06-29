@@ -1,11 +1,10 @@
-= simple_form_for @user do |f|
+= simple_form_for @user,url: data_handling_path(@user) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :username, label: "Brugernavn"
     = f.input :first_name, label: "Fornavn"
     = f.input :last_name, label: "Efternavn"
-    = f.input :city, label: "By"
     = f.input :email, label: "E-mail"
 
   .form-actions

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209081410) do
+ActiveRecord::Schema.define(version: 20170629152337) do
 
   create_table "actionmodules", force: :cascade do |t|
     t.integer  "time"
@@ -82,6 +82,11 @@ ActiveRecord::Schema.define(version: 20161209081410) do
   end
 
   add_index "completes", ["task_date_id"], name: "index_completes_on_task_date_id"
+
+  create_table "data_handlings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "followers", force: :cascade do |t|
     t.integer  "follower_one_id"

@@ -40,5 +40,5 @@ html
               = yield
 
               = javascript_include_tag 'application', 'data-turbolinks-track' => true
-              script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"
               = yield(:page_javascript) if content_for?(:page_javascript)
+              script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"

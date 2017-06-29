@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   resources :application
   resources :backend
   resources :data_handling
+
   delete 'backend/deleteSession/' => 'backend#deleteSession'
   delete 'application/deleteSession/' => 'application#deleteSession'
 

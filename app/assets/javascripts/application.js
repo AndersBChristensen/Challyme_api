@@ -31,10 +31,10 @@ $(document).ready(function() {
         paging: false,
         "language": {
             "lengthMenu": "Vis _MENU_ inputs per side.",
-            "zeroRecords": "Der er ikke fundet nogen data.",
-            "info": "Viser side _PAGE_ af _PAGES_",
+            "zeroRecords": "Der er ikke fundet noget data.",
+            "info": "Viser side _PAGE_ ud af _PAGES_",
             "infoEmpty": "Der er ingen data tilgængelig.",
-            "infoFiltered": "(Filtreret fra _MAX_ total records)"
+            "infoFiltered": "(Ud af _MAX_)"
         }
     });
 
