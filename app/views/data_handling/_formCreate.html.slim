@@ -1,0 +1,17 @@
+= simple_form_for @user, url: new_data_handling_path do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :username, label: "Brugernavn"
+    = f.input :first_name, label: "Fornavn"
+    = f.input :last_name, label: "Efternavn"
+    = f.input :email, label: "E-mail"
+    = f.input :phone, label: "Telefon nummer"
+    = f.input :password, label: "Kodeord"
+    = f.input :gender, label: "Køn"
+    = f.input :birthday, label: "Fødselsdag"
+
+  .form-actions
+    br
+    = f.button :button, "Fortryd", type: :data_handling_path, class: "btn btn-danger"
+    = f.button :submit, class: "btn btn-success", value: 'Opret bruger'

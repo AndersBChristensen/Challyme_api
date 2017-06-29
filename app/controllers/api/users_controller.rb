@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!, except: [:create, :user_challenges]
+  before_action :doorkeeper_authorize!, except: [:create, :user_challenges, :new]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 	skip_before_action :verify_authenticity_token
 
@@ -12,6 +12,10 @@ class Api::UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		render json: User
+	end
+
+	def new
+		@user = User.new
 	end
 
 	def create

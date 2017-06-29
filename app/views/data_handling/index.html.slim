@@ -2,6 +2,10 @@
 - if current_user
   .container.col-md-10.col-md-push-2
     br
+      div id='create'
+        = link_to 'Opret bruger', new_data_handling_path, method: :get, :class => "btn btn-primary create"
+      br
+      br
       input type="text" class="search form-control" placeholder="Hvad søger du?" id="searchBox"
       br
       table class="table table-hover results" data-sort-name="username" data-sort-order="desc" id="user_table"
