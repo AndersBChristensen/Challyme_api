@@ -26,28 +26,19 @@
 //= require bootstrap
 
 $(document).ready(function() {
-    $(".search").keyup(function () {
-        var searchTerm = $(".search").val();
-        var listItem = $('.results tbody').children('tr');
-        var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
-
-        $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
-            return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    //https://datatables.net/examples/basic_init/language.html
+    var datatable = $('#user_table').DataTable({
+        paging: false,
+        "language": {
+            "lengthMenu": "Vis _MENU_ inputs per side.",
+            "zeroRecords": "Der er ikke fundet nogen data.",
+            "info": "Viser side _PAGE_ af _PAGES_",
+            "infoEmpty": "Der er ingen data tilgængelig.",
+            "infoFiltered": "(Filtreret fra _MAX_ total records)"
         }
-        });
+    });
 
-        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','false');
-        });
-
-        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
-            $(this).attr('visible','true');
-        });
-
-        var jobCount = $('.results tbody tr[visible="true"]').length;
-        $('.counter').text(jobCount + ' item');
-
-        if(jobCount == '0') {$('.no-result').show();}
-        else {$('.no-result').hide();}
+    $("#searchBox").keyup(function () {
+        datatable.search(this.value).draw()
     });
 });

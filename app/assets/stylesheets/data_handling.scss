@@ -46,3 +46,12 @@
     font-weight: bold;
   }
 }
+
+.table.dataTable > tbody > tr{
+  background-color: transparent;
+}
+
+.table.dataTable{
+  border-collapse: collapse;
+
+}
