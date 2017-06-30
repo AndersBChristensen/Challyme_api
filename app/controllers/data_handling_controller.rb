@@ -40,9 +40,9 @@ class DataHandlingController < ApplicationController
 
   def create
     param = params.require(:user).permit(:first_name, :last_name, :username, :gender, :password, :created_at, :updated_at, :active, :phone, :email, :birthday, :weight)
-    user = User.create(param)
+    @user = User.create(param)
 
-    if user
+    if @user.save
       redirect_to '/data_handling' #, notice: "Brugeren blev oprettet"
     else
       render :new

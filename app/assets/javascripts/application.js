@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require turbolinks
+
 //= require twitter/bootstrap
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert
@@ -27,7 +27,7 @@
 
 $(document).ready(function() {
     //https://datatables.net/examples/basic_init/language.html
-    var datatable = $('#user_table').DataTable({
+    var datatable = $('#user_table').fadeIn().DataTable({
         paging: false,
         "language": {
             "lengthMenu": "Vis _MENU_ inputs per side.",
